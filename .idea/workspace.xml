@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="one day">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/poco.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oauser_department.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="two day">
+      <change afterPath="$PROJECT_DIR$/assets/image-20240910232439173.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/authentications.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/authentications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/management/commands/initdepartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/management/commands/initdepartments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/management/commands/inituser.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/management/commands/inituser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oadeparment_oauser_department.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +40,12 @@
     &quot;assignee&quot;: &quot;2329677402&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:2329677402/OAback.git",
-    "accountId": "436bed00-678c-4772-89e3-ad42ef4d0d78"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:2329677402/OAback.git&quot;,
+    &quot;accountId&quot;: &quot;436bed00-678c-4772-89e3-ad42ef4d0d78&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -76,7 +66,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/OAback&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/OA_System/OAback&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -149,7 +139,11 @@
       <workItem from="1725972286119" duration="548000" />
       <workItem from="1725972855354" duration="551000" />
       <workItem from="1725973418504" duration="62000" />
-      <workItem from="1725978216637" duration="5436000" />
+      <workItem from="1725978216637" duration="5906000" />
+      <workItem from="1725984740715" duration="78000" />
+      <workItem from="1725984888876" duration="206000" />
+      <workItem from="1725985173007" duration="25000" />
+      <workItem from="1725985212761" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -175,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725971952541</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="two day">
+      <option name="closed" value="true" />
+      <created>1725984390734</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725984390734</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +186,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="one day" />
-    <option name="LAST_COMMIT_MESSAGE" value="one day" />
+    <MESSAGE value="two day" />
+    <option name="LAST_COMMIT_MESSAGE" value="two day" />
   </component>
 </project>

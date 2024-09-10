@@ -4,7 +4,7 @@
 @ Date        : 2024/9/10 下午9:37
 @ Author      : Poco Ray
 @ File        : serializers.py
-@ Description : 实现序列化器
+@ Description : 实现登录、用户、部门序列化器
 """
 from rest_framework import serializers
 from .models import OAUser, UserStatusChoices, OADepartment
