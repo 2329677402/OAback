@@ -1,5 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+@ Date        : 2024/9/10 下午9:38
+@ Author      : Poco Ray
+@ File        : models.py
+@ Description : 实现自定义User模型及权限, 重写UserManager模型, 构建部门模型
+"""
 from django.db import models
-from django.contrib.auth.models import User, AbstractBaseUser, PermissionsMixin, UserManager, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+# from django.contrib.auth.models import User, UserManager
 from django.contrib.auth.hashers import make_password
 from shortuuidfield import ShortUUIDField
 
@@ -61,7 +70,8 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
     status = models.IntegerField(choices=UserStatusChoices, default=UserStatusChoices.UNACTIVATED)  # 用户状态
     is_active = models.BooleanField(default=True)  # 是否激活
     date_joined = models.DateTimeField(auto_now_add=True)  # 注册时间
-    department = models.ForeignKey("OADeparment", on_delete=models.SET_NULL, null=True, related_name='staffs',
+    department = models.ForeignKey("OADepartment", on_delete=models.SET_NULL, null=True,
+                                   related_name='staffs',
                                    related_query_name='staffs')  # 所属部门
 
     # 在后续使用objects, 会调用OAUserManager中的方法, 无需使用self
@@ -88,7 +98,7 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
         return self.realname
 
 
-class OADeparment(models.Model):
+class OADepartment(models.Model):
     """部门模型"""
     name = models.CharField(max_length=100, unique=True)  # 部门名称
     intro = models.CharField(max_length=200)  # 部门简介

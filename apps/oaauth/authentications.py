@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+@ Date        : 2024/9/10 下午9:42
+@ Author      : Poco Ray
+@ File        : authentications.py
+@ Description : 实现JWT认证
+"""
 import jwt
 import time
 from django.conf import settings

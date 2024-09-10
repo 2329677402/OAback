@@ -2,7 +2,7 @@
 
 # OAback
 
-> 基于 `Django `框架开发的OA系统.
+> 基于 `Django` 框架开发的OA系统.
 
 ## 常用命令
 
@@ -92,3 +92,74 @@ import pymysql
 pymysql.install_as_MySQLdb()
 ```
 
+
+
+
+
+## Tips
+
+### 1、Meta类的作用
+
+> Meta类在Django的序列化器和模型中用于定义一些元数据，这些元数据可以控制序列化器或模型的行为。以下是一些常见的用途：
+
+==序列化器==：
+
+- `model`：指定与序列化器关联的模型。
+- `fields`：指定要包含在序列化器中的字段。
+- `exclude`：指定要排除在序列化器之外的字段。
+
+==模型==：  
+
+- `db_table`：指定数据库表的名称。
+- `ordering`：指定默认的排序方式。
+- `verbose_name `和 `verbose_name_plural`：指定模型的单数和复数名称。
+
+```python
+# 在序列化器中使用Meta类
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OAUser
+        fields = "__all__"
+
+# 在模型中使用Meta类
+class OAUser(models.Model):
+    # 模型字段定义
+    class Meta:
+        db_table = "oa_user"
+        ordering = ["-date_joined"]
+        verbose_name = "用户"
+        verbose_name_plural = "用户"
+```
+
+
+
+### 2、嵌套序列化器
+
+代码示例：
+
+```python
+class DepartmentSerializer(serializers.ModelSerializer):
+    """部门序列化器"""
+    
+    class Meta:
+        model = OADepartment
+        fields = "__all__"
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """用户序列化器"""
+    
+    department = DepartmentSerializer()  # 嵌套序列化器, 用于序列化外键字段
+    
+    class Meta:
+        model = OAUser
+        exclude = ("password", "groups", "user_permissions")
+```
+
+  在 `UserSerializer `类中加入 `department = DepartmentSerializer()` 这行代码是为了实现嵌套序列化。嵌套序列化器用于==序列化外键字段==，使得在序列化 `OAUser `对象时，能够包含关联的 `OADepartment `对象的详细信息。  
+
+具体来说，这样做有以下几个好处：
+
+1. **直观的数据结构**：在序列化 `OAUser `对象时，能够直接包含 `OADepartment `对象的详细信息，而不是仅仅包含一个外键 ID。这使得前端在处理数据时更加直观和方便。  
+2. **减少查询次数**：通过嵌套序列化器，可以在一次查询中获取到关联对象的详细信息，减少了额外的数据库查询次数，提高了性能。  
+3. **数据完整性**：确保在序列化过程中，关联对象的数据也能被正确地序列化和返回，保持数据的完整性。

@@ -1,16 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+@ Date        : 2024/9/10 下午10:58
+@ Author      : Poco Ray
+@ File        : inituser.py
+@ Description : 初始化用户数据, 终端执行命令: python manage.py inituser
+"""
 from django.core.management.base import BaseCommand
-from apps.oaauth.models import OADeparment, OAUser
+from apps.oaauth.models import OADepartment, OAUser
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        boarder = OADeparment.objects.get(name='董事会')
-        developer = OADeparment.objects.get(name='产品研发部')
-        operator = OADeparment.objects.get(name='运营部')
-        saler = OADeparment.objects.get(name='销售部')
-        hr = OADeparment.objects.get(name='人事部')
-        finance = OADeparment.objects.get(name='财务部')
+        boarder = OADepartment.objects.get(name='董事会')
+        developer = OADepartment.objects.get(name='产品研发部')
+        operator = OADepartment.objects.get(name='运营部')
+        saler = OADepartment.objects.get(name='销售部')
+        hr = OADepartment.objects.get(name='人事部')
+        finance = OADepartment.objects.get(name='财务部')
 
         # 初始化用户数据
         # 董事会的员工, 都是superuser用户

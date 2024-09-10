@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="one day" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="one day">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/poco.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oauser_department.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/authentications.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/authentications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/management/commands/initdepartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/management/commands/initdepartments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/management/commands/inituser.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/management/commands/inituser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oadeparment_oauser_department.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +38,8 @@
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
-        <option name="argument" value="--follow-tags" />
-        <option name="title" value="Current Branch" />
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,12 +50,12 @@
     &quot;assignee&quot;: &quot;2329677402&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/2329677402/OAback.git&quot;,
-    &quot;accountId&quot;: &quot;436bed00-678c-4772-89e3-ad42ef4d0d78&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:2329677402/OAback.git",
+    "accountId": "436bed00-678c-4772-89e3-ad42ef4d0d78"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -52,23 +67,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Django 服务器.OAback.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Project/OAback",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.ChangelistConflict",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Django 服务器.OAback.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/OAback&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\OAback\apps\oaauth" />
@@ -132,6 +149,7 @@
       <workItem from="1725972286119" duration="548000" />
       <workItem from="1725972855354" duration="551000" />
       <workItem from="1725973418504" duration="62000" />
+      <workItem from="1725978216637" duration="5436000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />

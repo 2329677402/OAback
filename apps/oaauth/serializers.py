@@ -1,11 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+@ Date        : 2024/9/10 下午9:37
+@ Author      : Poco Ray
+@ File        : serializers.py
+@ Description : 实现序列化器
+"""
 from rest_framework import serializers
-from .models import OAUser, UserStatusChoices
+from .models import OAUser, UserStatusChoices, OADepartment
 
 
 class LoginSerializer(serializers.Serializer):
-    """
-    登录序列化器
-    """
+    """登录序列化器"""
     email = serializers.EmailField(required=True)  # 邮箱
     password = serializers.CharField(max_length=20, min_length=6, required=True)  # 密码
 
@@ -31,3 +37,23 @@ class LoginSerializer(serializers.Serializer):
         else:
             raise serializers.ValidationError("请输入邮箱或密码！")
         return attrs
+
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    """部门序列化器"""
+
+    class Meta:
+        model = OADepartment
+        fields = "__all__"
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """用户序列化器"""
+
+    # 嵌套序列化器, 用于序列化外键字段, 能够直接包含 OADepartment 对象的详细信息，而不是仅仅包含一个外键 ID。这使得前端在处理数据时更加直观和方便。
+    department = DepartmentSerializer()
+
+    class Meta:
+        model = OAUser
+        # 排除字段, password不能返回给前端, groups和user_permissions字段是django内置字段, 未使用到不需要返回
+        exclude = ("password", "groups", "user_permissions")
