@@ -71,7 +71,8 @@ class LoginCheckMiddleware(MiddlewareMixin):
                     # 中间件无需返回数据，会自动执行，如果返回数据，反而导致视图无法执行
                     # return user, jwt_token
 
-                    # 将user和jwt_token绑定到request对象上,这个是Django内置的HttpRequest对象
+                    # 注意: 这个是将user和jwt_token绑定到Django内置的HttpRequest对象，而后续使用的是DRF封装的Request对象
+                    # 在authentications.py中的UserTokenAuthentication类中，会将user和jwt_token绑定到DRF封装的Request对象
                     request.user = user
                     request.auth = jwt_token
                 except Exception:

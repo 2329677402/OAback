@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="two day">
-      <change afterPath="$PROJECT_DIR$/apps/oaauth/middleware.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加用户修改密码功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/authentications.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/authentications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/oaauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +148,7 @@
       <workItem from="1726070952591" duration="2421000" />
       <workItem from="1726142509716" duration="3945000" />
       <workItem from="1726230703428" duration="5738000" />
-      <workItem from="1726386417221" duration="9069000" />
+      <workItem from="1726386417221" duration="15627000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -194,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725985323441</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: 添加用户修改密码功能">
+      <option name="closed" value="true" />
+      <created>1726396946215</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726396946215</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +208,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="one day" />
     <MESSAGE value="two day" />
-    <option name="LAST_COMMIT_MESSAGE" value="two day" />
+    <MESSAGE value="feat: 添加用户修改密码功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加用户修改密码功能" />
   </component>
 </project>

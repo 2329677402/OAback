@@ -4,10 +4,11 @@
 @ Date        : 2024/9/10 下午9:37
 @ Author      : Poco Ray
 @ File        : serializers.py
-@ Description : 实现登录、用户、部门序列化器
+@ Description : 实现序列化器
 """
 from rest_framework import serializers
 from .models import OAUser, UserStatusChoices, OADepartment
+from rest_framework import exceptions
 
 
 class LoginSerializer(serializers.Serializer):
@@ -58,3 +59,25 @@ class UserSerializer(serializers.ModelSerializer):
         model = OAUser
         # 排除字段, password不能返回给前端, groups和user_permissions字段是django内置字段, 未使用到不需要返回
         exclude = ("password", "groups", "user_permissions")
+
+
+class ResetPwdSerializer(serializers.Serializer):
+    """重置密码序列化器"""
+    old_pwd = serializers.CharField(max_length=20, min_length=6)  # 旧密码
+    new_pwd = serializers.CharField(max_length=20, min_length=6)  # 新密码
+    confirm_pwd = serializers.CharField(max_length=20, min_length=6)  # 确认密码
+
+    def validate(self, attrs):
+        # 注意: attrs.get()和attrs[]的区别,
+        # 如果指定key不存在, attrs[]会报错, 而attrs.get()会返回None(或者指定的默认值)，更加安全
+        old_pwd = attrs.get("old_pwd")
+        new_pwd = attrs.get("new_pwd")
+        confirm_pwd = attrs.get("confirm_pwd")
+
+        user = self.context.get("request").user
+        if not user.check_password(old_pwd):
+            raise exceptions.ValidationError("旧密码错误！")
+
+        if new_pwd != confirm_pwd:
+            raise exceptions.ValidationError("两次密码不一致！")
+        return attrs
