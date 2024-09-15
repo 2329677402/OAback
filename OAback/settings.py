@@ -31,31 +31,29 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
+    # 'django.contrib.sessions',
+    # 'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 安装rest_framework
-    'rest_framework',
-    # 安装跨域中间件
-    'corsheaders',
-    # 注册oa
-    'apps.oaauth',
+    'rest_framework',  # 安装rest_framework
+    'corsheaders',  # 安装跨域中间件
+    'apps.oaauth',  # 注册oa
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.contrib.sessions.middleware.SessionMiddleware',
     # 跨域中间件, 一定要放在CommonMiddleware之前
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 前端通过Vue去渲染，不再使用Django的模板，并且使用JWT进行认证，不是通过cookie，无需开启csrf保护
     # 'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.oaauth.middleware.LoginCheckMiddleware',  # 注册中间件
 ]
 
 ROOT_URLCONF = 'OAback.urls'
@@ -71,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                # 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -141,3 +139,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 # AUTH_USER_MODEL = 'apps.oaauth.models.OAUser'写法是不对的
 # 正确写法是AUTH_USER_MODEL = 'app名称.User模型类名'
 AUTH_USER_MODEL = 'oaauth.OAUser'
+
+# 配置REST_FRAMEWORK参数
+REST_FRAMEWORK = {
+    # 配置默认鉴权方式--JWT
+    'DEFAULT_AUTHENTICATION_CLASSES': ['apps.oaauth.authentications.UserTokenAuthentication'],
+}

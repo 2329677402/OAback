@@ -12,8 +12,9 @@ from .models import OAUser, UserStatusChoices, OADepartment
 
 class LoginSerializer(serializers.Serializer):
     """登录序列化器"""
-    email = serializers.EmailField(required=True)  # 邮箱
-    password = serializers.CharField(max_length=20, min_length=6, required=True)  # 密码
+    email = serializers.EmailField(required=True, error_messages={"required": "请输入邮箱"})  # 邮箱
+    password = serializers.CharField(max_length=20, min_length=6, required=True,
+                                     error_messages={"required": "请输入密码"})  # 密码
 
     def validate(self, attrs):
         # 校验邮箱和密码在数据库中是否存在 OR 是否正确, attrs参数是前端传递过来的数据, 包含了email和password字段

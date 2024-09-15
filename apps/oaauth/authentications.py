@@ -23,6 +23,12 @@ def generate_jwt(user):
     return token
 
 
+class UserTokenAuthentication(BaseAuthentication):
+    def authenticate(self, request):
+        # 这里的request是DRF封装的Request对象, 不是django的HttpRequest对象
+        return request._request.user, request._request.auth
+
+
 class JWTAuthentication(BaseAuthentication):
     """
     功能: 校验JWT
