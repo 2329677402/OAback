@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-@ Date        : 2024/9/16 下午8:50
+@ Date        : 2024/9/17 上午12:46
 @ Author      : Poco Ray
-@ File        : apps\absent\models.py
+@ File        : models.py
 @ Description : 导入考勤相关模型
 """
+
 
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -51,5 +52,5 @@ class Absent(models.Model):
     end_date = models.DateField()
     # 9、请假发起时间
     create_time = models.DateTimeField(auto_now_add=True)
-    # 10、审批回复内容
-    response_content = models.TextField()
+    # 10、审批回复内容，表单中可以为空
+    response_content = models.TextField(blank=True)
