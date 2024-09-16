@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # 安装rest_framework
     'corsheaders',  # 安装跨域中间件
-    'apps.oaauth',  # 注册oa
+    'apps.oaauth',  # 安装用户app
+    'apps.absent',  # 安装考勤app
 ]
 
 MIDDLEWARE = [
