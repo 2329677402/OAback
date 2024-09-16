@@ -4,7 +4,7 @@
 @ Date        : 2024/9/10 下午9:38
 @ Author      : Poco Ray
 @ File        : models.py
-@ Description : 实现自定义User模型及权限, 重写UserManager模型, 构建部门模型
+@ Description : 重写用户相关模型
 """
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
@@ -57,7 +57,7 @@ class OAUserManager(BaseUserManager):
 # 重写User模型
 class OAUser(AbstractBaseUser, PermissionsMixin):
     """
-    自定义User模型, blank=True表示可以为空
+    自定义User模型表, blank=True表示可以为空
     AbstractBaseUser: 用于自定义User模型
     PermissionsMixin: 用于自定义User模型的权限
     """
@@ -99,7 +99,7 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
 
 
 class OADepartment(models.Model):
-    """部门模型"""
+    """部门模型表"""
     name = models.CharField(max_length=100, unique=True)  # 部门名称
     intro = models.CharField(max_length=200)  # 部门简介
     leader = models.OneToOneField(OAUser, on_delete=models.SET_NULL, null=True, related_name='leader_department',

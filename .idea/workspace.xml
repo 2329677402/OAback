@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加用户修改密码功能">
+      <change afterPath="$PROJECT_DIR$/apps/absent/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +70,7 @@
     "Django 服务器.OAback.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -72,12 +80,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editing.templates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\OA_System\OAback\apps" />
       <recent name="D:\Project\OAback\apps\oaauth" />
       <recent name="D:\Project\OAback\apps" />
     </key>
@@ -148,7 +157,8 @@
       <workItem from="1726070952591" duration="2421000" />
       <workItem from="1726142509716" duration="3945000" />
       <workItem from="1726230703428" duration="5738000" />
-      <workItem from="1726386417221" duration="15627000" />
+      <workItem from="1726386417221" duration="15684000" />
+      <workItem from="1726471594047" duration="9042000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -198,11 +208,30 @@
       <option name="project" value="LOCAL" />
       <updated>1726396946215</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: 添加用户修改密码功能">
+      <option name="closed" value="true" />
+      <created>1726404543592</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726404543592</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
