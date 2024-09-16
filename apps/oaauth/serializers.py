@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-@ Date        : 2024/9/10 下午9:37
+@ Date        : 2024/9/17 上午12:47
 @ Author      : Poco Ray
 @ File        : serializers.py
-@ Description : 实现序列化器
+@ Description : 实现用户相关序列化器
 """
+
 from rest_framework import serializers
 from .models import OAUser, UserStatusChoices, OADepartment
 from rest_framework import exceptions
