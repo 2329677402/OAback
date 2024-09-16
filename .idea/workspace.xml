@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加用户修改密码功能">
-      <change afterPath="$PROJECT_DIR$/apps/absent/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/views.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="docs: 添加考勤模块配置项">
+      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/absent/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/absent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/absent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oauser_department.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,26 +65,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Django 服务器.OAback.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Project/OA_System/OAback",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editing.templates",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Django 服务器.OAback.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/OA_System/OAback&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\OA_System\OAback\apps" />
@@ -158,7 +159,9 @@
       <workItem from="1726142509716" duration="3945000" />
       <workItem from="1726230703428" duration="5738000" />
       <workItem from="1726386417221" duration="15684000" />
-      <workItem from="1726471594047" duration="9042000" />
+      <workItem from="1726471594047" duration="10346000" />
+      <workItem from="1726501186200" duration="4220000" />
+      <workItem from="1726505461395" duration="3806000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -216,7 +219,31 @@
       <option name="project" value="LOCAL" />
       <updated>1726404543592</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: 考勤相关模型创建">
+      <option name="closed" value="true" />
+      <created>1726493037926</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493037926</updated>
+    </task>
+    <task id="LOCAL-00009" summary="docs: 更新注释文档">
+      <option name="closed" value="true" />
+      <created>1726493188696</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493188696</updated>
+    </task>
+    <task id="LOCAL-00010" summary="docs: 添加考勤模块配置项">
+      <option name="closed" value="true" />
+      <created>1726493241786</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493241786</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +265,9 @@
     <MESSAGE value="one day" />
     <MESSAGE value="two day" />
     <MESSAGE value="feat: 添加用户修改密码功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加用户修改密码功能" />
+    <MESSAGE value="feat: 考勤相关模型创建" />
+    <MESSAGE value="docs: 更新注释文档" />
+    <MESSAGE value="docs: 添加考勤模块配置项" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 添加考勤模块配置项" />
   </component>
 </project>

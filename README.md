@@ -165,3 +165,21 @@ class UserSerializer(serializers.ModelSerializer):
 3. **数据完整性**：确保在序列化过程中，关联对象的数据也能被正确地序列化和返回，保持数据的完整性。
 
 ![image-20240910232439173](assets/image-20240910232439173.png)
+
+
+
+### 3、blank和null的区别
+
+> 在Django模型字段中，`blank`和`null`有不同的含义和用途：
+
+- `blank=True`：表示该字段在==表单==中可以为空。它主要用于**表单验证**，允许用户在表单中不填写该字段。
+- `null=True`：表示该字段在==数据库==中可以存储NULL值。它主要用于**数据库层面**，允许在数据库中存储NULL值。
+
+通常情况下，对于字符串类型的字段（如`CharField`和`TextField`），你可能会设置`blank=True`而不设置`null=True`，因为Django会将空字符串存储为`""`而不是`NULL`。对于其他类型的字段（如`IntegerField`、`DateField`等），你可能会同时设置`blank=True`和`null=True`，以允许在表单和数据库中都为空。
+
+例如：
+
+```python
+name = models.CharField(max_length=100, blank=True)  # 表单中可以为空，数据库中存储为空字符串
+description = models.TextField(blank=True, null=True)  # 表单中可以为空，数据库中存储为NULL
+```
