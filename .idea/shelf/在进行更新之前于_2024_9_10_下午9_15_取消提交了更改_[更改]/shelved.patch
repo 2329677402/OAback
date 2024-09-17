@@ -1,0 +1,266 @@
+Index: README.md
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	(revision 0ea4732e47c34016994ba3d6c5feb7e5d8987349)
++++ /dev/null	(revision 0ea4732e47c34016994ba3d6c5feb7e5d8987349)
+@@ -1,94 +0,0 @@
+-[toc]
+-
+-# OAback
+-
+-> 基于 `Django `框架开发的OA系统.
+-
+-## 常用命令
+-
+-```shell
+-# 创建 django 项目
+-django-admin startproject [项目名称]
+-
+-# 创建 django app
+-python manage.py startapp [app名称]
+-
+-# 数据库迁移
+-python manage.py makemigrations
+-python manage.py migrate
+-
+-# 创建超级用户
+-python manage.py createsuperuser
+-```
+-
+-
+-
+-## 配置问题
+-
+-### 1、数据库
+-
+-```python
+-DATABASES = {
+-    'default': {
+-        'ENGINE': 'django.db.backends.mysql',
+-        'NAME': 'djangoa',
+-        'USER': 'root',
+-        'PASSWORD': '123456',
+-        'HOST': 'localhost',
+-        'PORT': '3306'
+-    }
+-}
+-```
+-
+-
+-
+-### 2、时区及语言
+-
+-- **设置时区**: 在 `settings.py` 中，将`TIME_ZONE` 设置为 `'Asia/Shanghai'`，`USE_TZ` 设置为`False`, 关闭时区支持，这是适用于中国的时区标识符.
+-
+-- **设置语言**: 将`LANGUAGE_CODE`设置改为`'zh-hans'`,可以将管理员页面语言设置为简体中文.
+-
+-  ```python
+-  # settings.py
+-  
+-  LANGUAGE_CODE = "zh-hans"
+-  TIME_ZONE = "Asia/Shanghai"
+-  USE_I18N = True
+-  USE_TZ = False
+-  ```
+-
+-
+-
+-### 3、中间件
+-
+-```python
+-MIDDLEWARE = [
+-    'django.middleware.security.SecurityMiddleware',
+-    'django.contrib.sessions.middleware.SessionMiddleware',
+-    # 跨域中间件, 一定要放在CommonMiddleware之前
+-    'corsheaders.middleware.CorsMiddleware',
+-    'django.middleware.common.CommonMiddleware',
+-    # 前端通过Vue去渲染，不再使用Django的模板，并且使用JWT进行认证，不是通过cookie，无需开启csrf保护
+-    # 'django.middleware.csrf.CsrfViewMiddleware',
+-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+-    'django.contrib.messages.middleware.MessageMiddleware',
+-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+-]
+-```
+-
+-
+-
+-## 报错问题
+-
+-### 1、数据库未正确识别
+-
+-![image-20240909004334643](assets/image-20240909004334643.png)
+-
+-**在 Django 设置中配置 pymysql**: 在 Django 项目的 `settings.py` 或 `__init__.py` 中告诉 Django 使用 `pymysql`。在文件的顶部添加以下代码：
+-
+-```python
+-import pymysql
+-
+-pymysql.install_as_MySQLdb()
+-```
+-
+Index: OAback/README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/OAback/README.md b/OAback/README.md
+new file mode 100644
+--- /dev/null	(date 1725819164130)
++++ b/OAback/README.md	(date 1725819164130)
+@@ -0,0 +1,94 @@
++[toc]
++
++# OAback
++
++> 基于 `Django `框架开发的OA系统.
++
++## 常用命令
++
++```shell
++# 创建 django 项目
++django-admin startproject [项目名称]
++
++# 创建 django app
++python manage.py startapp [app名称]
++
++# 数据库迁移
++python manage.py makemigrations
++python manage.py migrate
++
++# 创建超级用户
++python manage.py createsuperuser
++```
++
++
++
++## 配置问题
++
++### 1、数据库
++
++```python
++DATABASES = {
++    'default': {
++        'ENGINE': 'django.db.backends.mysql',
++        'NAME': 'djangoa',
++        'USER': 'root',
++        'PASSWORD': '123456',
++        'HOST': 'localhost',
++        'PORT': '3306'
++    }
++}
++```
++
++
++
++### 2、时区及语言
++
++- **设置时区**: 在 `settings.py` 中，将`TIME_ZONE` 设置为 `'Asia/Shanghai'`，`USE_TZ` 设置为`False`, 关闭时区支持，这是适用于中国的时区标识符.
++
++- **设置语言**: 将`LANGUAGE_CODE`设置改为`'zh-hans'`,可以将管理员页面语言设置为简体中文.
++
++  ```python
++  # settings.py
++  
++  LANGUAGE_CODE = "zh-hans"
++  TIME_ZONE = "Asia/Shanghai"
++  USE_I18N = True
++  USE_TZ = False
++  ```
++
++
++
++### 3、中间件
++
++```python
++MIDDLEWARE = [
++    'django.middleware.security.SecurityMiddleware',
++    'django.contrib.sessions.middleware.SessionMiddleware',
++    # 跨域中间件, 一定要放在CommonMiddleware之前
++    'corsheaders.middleware.CorsMiddleware',
++    'django.middleware.common.CommonMiddleware',
++    # 前端通过Vue去渲染，不再使用Django的模板，并且使用JWT进行认证，不是通过cookie，无需开启csrf保护
++    # 'django.middleware.csrf.CsrfViewMiddleware',
++    'django.contrib.auth.middleware.AuthenticationMiddleware',
++    'django.contrib.messages.middleware.MessageMiddleware',
++    'django.middleware.clickjacking.XFrameOptionsMiddleware',
++]
++```
++
++
++
++## 报错问题
++
++### 1、数据库未正确识别
++
++![image-20240909004334643](assets/image-20240909004334643.png)
++
++**在 Django 设置中配置 pymysql**: 在 Django 项目的 `settings.py` 或 `__init__.py` 中告诉 Django 使用 `pymysql`。在文件的顶部添加以下代码：
++
++```python
++import pymysql
++
++pymysql.install_as_MySQLdb()
++```
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a04b4fe8-6453-4079-9c37-5e26f57563ec\" name=\"更改\" comment=\"one day\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"DjangoConsoleOptions\" custom-start-script=\"import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)\">\r\n    <option name=\"myCustomStartScript\" value=\"import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--follow-tags\" />\r\n        <option name=\"title\" value=\"Current Branch\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;2329677402&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/2329677402/OAback.git&quot;,\r\n    &quot;accountId&quot;: &quot;436bed00-678c-4772-89e3-ad42ef4d0d78&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2lmzYWUVKQXHqtpy51Z8znWbPCX\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"Django 服务器.OAback.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenDjangoStructureViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"last_opened_file_path\": \"D:/Project/OAback\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"project.propVCSSupport.ChangelistConflict\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Project\\OAback\\apps\\oaauth\" />\r\n      <recent name=\"D:\\Project\\OAback\\apps\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"OAback\" type=\"Python.DjangoServer\" factoryName=\"Django server\">\r\n      <module name=\"OAback\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n        <env name=\"DJANGO_SETTINGS_MODULE\" value=\"OAback.settings\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"launchJavascriptDebuger\" value=\"false\" />\r\n      <option name=\"port\" value=\"8000\" />\r\n      <option name=\"host\" value=\"localhost\" />\r\n      <option name=\"additionalOptions\" value=\"\" />\r\n      <option name=\"browserUrl\" value=\"\" />\r\n      <option name=\"runTestServer\" value=\"false\" />\r\n      <option name=\"runNoReload\" value=\"false\" />\r\n      <option name=\"useCustomRunCommand\" value=\"false\" />\r\n      <option name=\"customRunCommand\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82\" />\r\n        <option value=\"bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"a04b4fe8-6453-4079-9c37-5e26f57563ec\" name=\"更改\" comment=\"\" />\r\n      <created>1725800087961</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1725800087961</updated>\r\n      <workItem from=\"1725800096764\" duration=\"2791000\" />\r\n      <workItem from=\"1725811013008\" duration=\"1693000\" />\r\n      <workItem from=\"1725812733680\" duration=\"6418000\" />\r\n      <workItem from=\"1725885611130\" duration=\"606000\" />\r\n      <workItem from=\"1725886268950\" duration=\"748000\" />\r\n      <workItem from=\"1725887032885\" duration=\"138000\" />\r\n      <workItem from=\"1725887178069\" duration=\"121000\" />\r\n      <workItem from=\"1725887306357\" duration=\"16228000\" />\r\n      <workItem from=\"1725971140990\" duration=\"454000\" />\r\n      <workItem from=\"1725971606022\" duration=\"63000\" />\r\n      <workItem from=\"1725971676554\" duration=\"593000\" />\r\n      <workItem from=\"1725972286119\" duration=\"548000\" />\r\n      <workItem from=\"1725972855354\" duration=\"551000\" />\r\n      <workItem from=\"1725973418504\" duration=\"62000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"one day\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725885723432</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725885723432</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"one day\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725887200250</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725887200250</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"one day\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1725971952541</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1725971952541</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"one day\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"one day\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0ea4732e47c34016994ba3d6c5feb7e5d8987349)
++++ b/.idea/workspace.xml	(date 1725974113721)
+@@ -35,12 +35,12 @@
+     &quot;assignee&quot;: &quot;2329677402&quot;
+   }
+ }</component>
+-  <component name="GithubPullRequestsUISettings">{
+-  &quot;selectedUrlAndAccountId&quot;: {
+-    &quot;url&quot;: &quot;https://github.com/2329677402/OAback.git&quot;,
+-    &quot;accountId&quot;: &quot;436bed00-678c-4772-89e3-ad42ef4d0d78&quot;
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "git@github.com:2329677402/OAback.git",
++    "accountId": "436bed00-678c-4772-89e3-ad42ef4d0d78"
+   }
+-}</component>
++}]]></component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 3
+ }</component>
+@@ -58,6 +58,7 @@
+     "Django 服务器.OAback.executor": "Run",
+     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "main",
+     "ignore.virus.scanning.warn.message": "true",
+     "last_opened_file_path": "D:/Project/OAback",
+     "node.js.detected.package.eslint": "true",
+@@ -132,6 +133,7 @@
+       <workItem from="1725972286119" duration="548000" />
+       <workItem from="1725972855354" duration="551000" />
+       <workItem from="1725973418504" duration="62000" />
++      <workItem from="1725973487666" duration="620000" />
+     </task>
+     <task id="LOCAL-00001" summary="one day">
+       <option name="closed" value="true" />
+@@ -157,7 +159,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1725971952541</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="one day">
++      <option name="closed" value="true" />
++      <created>1725973501818</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1725973501818</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
