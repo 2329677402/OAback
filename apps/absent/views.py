@@ -9,8 +9,11 @@
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.response import Response
-from .serializers import AbsentSerializer
-from .models import *
+from rest_framework.views import APIView
+from .serializers import *
+from .models import AbsentType
+from .utils import get_responder
+from apps.oaauth.serializers import UserSerializer
 
 
 # 1、发起考勤(create)
@@ -46,4 +49,25 @@ class AbsentViewSet(mixins.CreateModelMixin,
             result = queryset.filter(requester=request.user)  # 自己的考勤记录
         # 如果想要将数据返回给前端，需要将数据序列化
         serializer = self.serializer_class(result, many=True)
+        return Response(data=serializer.data)
+
+
+class AbsentTypeView(APIView):
+    """提供API接口给前端，用于显示员工需要请假的类型"""
+
+    @staticmethod
+    def get(request):
+        types = AbsentType.objects.all()  # 获取所有的请假类型
+        serializer = AbsentTypeSerializer(types, many=True)  # 将获取到的数据序列化成JSON格式
+        return Response(data=serializer.data)
+
+
+class ResponderView(APIView):
+    """提供API接口给前端，自动获取当前账号的审批人"""
+
+    @staticmethod
+    def get(request):
+        responder = get_responder(request)  # 获取当前账号的审批人
+        # serializer: 如果序列化的对象是一个None，那么不会报错，而是返回一个包含除了主键外的所有字段的空字典
+        serializer = UserSerializer(responder)  # 将获取到的数据序列化成JSON对象
         return Response(data=serializer.data)

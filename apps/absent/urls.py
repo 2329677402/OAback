@@ -14,6 +14,10 @@ app_name = "absent"
 # 使用DRF默认的路由器生成的URL会在末尾强制添加"/"才能访问
 # 设置trailing_slash=False可以去掉末尾的"/"
 router = DefaultRouter(trailing_slash=False)
+# http://localhost:8000/absent/absent/
 router.register("absent", views.AbsentViewSet, basename="absent")
 
-urlpatterns = [] + router.urls
+urlpatterns = [
+                  path('type', views.AbsentTypeView.as_view(), name="absenttypes"),
+                  path('responder', views.ResponderView.as_view(), name="getresponder")
+              ] + router.urls

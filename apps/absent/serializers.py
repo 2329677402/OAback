@@ -10,6 +10,7 @@ from rest_framework import serializers
 from .models import Absent, AbsentType, AbsentStatusChoices
 from apps.oaauth.serializers import UserSerializer
 from rest_framework import exceptions
+from .utils import get_responder
 
 
 class AbsentTypeSerializer(serializers.ModelSerializer):
@@ -51,18 +52,7 @@ class AbsentSerializer(serializers.ModelSerializer):
         """
         request = self.context.get("request")  # 获取请求对象
         user = request.user  # 获取当前登录用户
-        # 获取审批人
-
-        # 1、如果是部门的leader发起的请假，那么审批人是董事会的manager(董事会leader请假直接通过)
-        # 2、如果是员工发起的请假，那么审批人是各自部门的leader
-        if user.department.leader.uid == user.uid:
-            if user.department.name == "董事会":
-                responder = None
-            else:
-                responder = user.department.manager
-        else:
-            responder = user.department.leader
-
+        responder = get_responder(request)  # 获取审批人
         if responder is None:
             validated_data["status"] = AbsentStatusChoices.PASS  # 董事会leader请假直接通过
         else:
