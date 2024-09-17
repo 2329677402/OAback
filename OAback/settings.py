@@ -146,3 +146,5 @@ REST_FRAMEWORK = {
     # 配置默认鉴权方式--JWT
     'DEFAULT_AUTHENTICATION_CLASSES': ['apps.oaauth.authentications.UserTokenAuthentication'],
 }
+
+APPEND_SLASH = False  # 关闭Django的url末尾添加 "/" 功能

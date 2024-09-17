@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="docs: 添加考勤模块配置项">
-      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/0002_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/absent/urls.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 实现考勤视图集和序列化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/migrations/0002_oauser_department.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +152,8 @@
       <workItem from="1726386417221" duration="15684000" />
       <workItem from="1726471594047" duration="10346000" />
       <workItem from="1726501186200" duration="4220000" />
-      <workItem from="1726505461395" duration="3806000" />
+      <workItem from="1726505461395" duration="4026000" />
+      <workItem from="1726556069668" duration="8811000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -243,7 +235,39 @@
       <option name="project" value="LOCAL" />
       <updated>1726493241786</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat: 实现考勤视图集和序列化功能">
+      <option name="closed" value="true" />
+      <created>1726509403936</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726509403936</updated>
+    </task>
+    <task id="LOCAL-00012" summary="docs: 更新注释文档">
+      <option name="closed" value="true" />
+      <created>1726509459096</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726509459096</updated>
+    </task>
+    <task id="LOCAL-00013" summary="docs: 更新README文档">
+      <option name="closed" value="true" />
+      <created>1726509508407</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726509508407</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: 实现考勤视图集和序列化">
+      <option name="closed" value="true" />
+      <created>1726567771448</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1726567771448</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,8 +290,11 @@
     <MESSAGE value="two day" />
     <MESSAGE value="feat: 添加用户修改密码功能" />
     <MESSAGE value="feat: 考勤相关模型创建" />
-    <MESSAGE value="docs: 更新注释文档" />
     <MESSAGE value="docs: 添加考勤模块配置项" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 添加考勤模块配置项" />
+    <MESSAGE value="feat: 实现考勤视图集和序列化功能" />
+    <MESSAGE value="docs: 更新注释文档" />
+    <MESSAGE value="docs: 更新README文档" />
+    <MESSAGE value="feat: 实现考勤视图集和序列化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 实现考勤视图集和序列化" />
   </component>
 </project>
