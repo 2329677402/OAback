@@ -6,11 +6,11 @@
 @ File        : views.py
 @ Description : 实现考勤相关视图
 """
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework import mixins
-from .models import *
+from rest_framework.response import Response
 from .serializers import AbsentSerializer
+from .models import *
 
 
 # 1、发起考勤(create)
@@ -24,3 +24,26 @@ class AbsentViewSet(mixins.CreateModelMixin,
                     viewsets.GenericViewSet):
     queryset = Absent.objects.all()
     serializer_class = AbsentSerializer
+
+    def update(self, request, *args, **kwargs):
+        """
+        问题: DRF框架中，默认情况下，如果要修改某条数据，必须传递所有字段
+        解决: 如果只想修改某个或某部分字段，重写update方法，将partial属性设置为True
+        """
+        kwargs["partial"] = True
+        return super().update(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        """
+        问题: 查询考勤记录时会返回数据库所有的数据
+        解决: 重写list方法，根据不同的查询参数返回不同的考勤记录
+        """
+        queryset = self.get_queryset()
+        who = request.query_params.get("who")
+        if who and who == "sub":
+            result = queryset.filter(responder=request.user)  # 下属的考勤记录
+        else:
+            result = queryset.filter(requester=request.user)  # 自己的考勤记录
+        # 如果想要将数据返回给前端，需要将数据序列化
+        serializer = self.serializer_class(result, many=True)
+        return Response(data=serializer.data)

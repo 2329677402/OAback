@@ -6,7 +6,6 @@
 @ File        : serializers.py
 @ Description : 实现考勤相关序列化器
 """
-
 from rest_framework import serializers
 from .models import Absent, AbsentType, AbsentStatusChoices
 from apps.oaauth.serializers import UserSerializer
@@ -37,14 +36,19 @@ class AbsentSerializer(serializers.ModelSerializer):
         model = Absent
         fields = "__all__"
 
-    def validate_absent_type_id(self, value):
+    @staticmethod
+    def validate_absent_type_id(value):
         # 验证absent_type_id字段是否在数据库中存在
         if not AbsentType.objects.filter(pk=value).exists():
             raise exceptions.ValidationError(detail="考勤类型不存在！")
         return value
 
     def create(self, validated_data):
-        """新增考勤记录时，执行create方法"""
+        """
+        新增考勤记录时，执行create方法
+        问题: 新增考勤记录时，无法根据发起人的部门来确定审批人
+        解决: 重写create方法，获取当前登录用户，根据当前登录用户的部门来确定审批人
+        """
         request = self.context.get("request")  # 获取请求对象
         user = request.user  # 获取当前登录用户
         # 获取审批人
@@ -61,11 +65,17 @@ class AbsentSerializer(serializers.ModelSerializer):
 
         if responder is None:
             validated_data["status"] = AbsentStatusChoices.PASS  # 董事会leader请假直接通过
+        else:
+            validated_data["status"] = AbsentStatusChoices.WAITING  # 其他人请假需要审批
         absent = Absent.objects.create(**validated_data, requester=user, responder=responder)
         return absent
 
     def update(self, instance, validated_data):
-        """更新考勤记录时，执行update方法"""
+        """
+        更新考勤记录时，执行update方法
+        问题: 所有人都可以修改考勤记录，而不是只有审批人才能修改
+        解决: 重写update方法，只有审批人才能修改考勤记录
+        """
         # 如果考勤记录已经开始审批，那么无法修改
         if instance.status != AbsentStatusChoices.WAITING:
             raise exceptions.APIException(detail="当前考勤记录已经开始审批，无法修改！")

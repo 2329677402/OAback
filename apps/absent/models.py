@@ -7,7 +7,6 @@
 @ Description : 导入考勤相关模型
 """
 
-
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -22,13 +21,13 @@ class AbsentStatusChoices(models.IntegerChoices):
 
 
 class AbsentType(models.Model):
-    """考勤类型表"""
+    """请假类型表"""
     name = models.CharField(max_length=100)  # 考勤类型名称
     create_time = models.DateTimeField(auto_now_add=True)  # 类型创建时间
 
 
 class Absent(models.Model):
-    """考勤记录表"""
+    """请假记录表"""
     # 1、标题
     title = models.CharField(max_length=200)
     # 2、请假详细内容
