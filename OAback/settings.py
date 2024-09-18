@@ -145,6 +145,9 @@ AUTH_USER_MODEL = 'oaauth.OAUser'
 REST_FRAMEWORK = {
     # 配置默认鉴权方式--JWT
     'DEFAULT_AUTHENTICATION_CLASSES': ['apps.oaauth.authentications.UserTokenAuthentication'],
+    # 配置默认分页器, 全局分页
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,
 }
 
 APPEND_SLASH = False  # 关闭Django的url末尾添加 "/" 功能

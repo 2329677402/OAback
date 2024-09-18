@@ -47,6 +47,14 @@ class AbsentViewSet(mixins.CreateModelMixin,
             result = queryset.filter(responder=request.user)  # 下属的考勤记录
         else:
             result = queryset.filter(requester=request.user)  # 自己的考勤记录
+
+        # result参数: 是一个QuerySet对象,代表符合要求的数据
+        # paginate_queryset方法: 会自动根据前端传递的page和page_size参数进行分页
+        page = self.paginate_queryset(result)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            # get_paginated_response方法: 除了返回序列化后的数据,还会返回总数据total,上一页url的地址
+            return self.get_paginated_response(serializer.data)
         # 如果想要将数据返回给前端，需要将数据序列化
         serializer = self.serializer_class(result, many=True)
         return Response(data=serializer.data)

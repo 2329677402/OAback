@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="chore: 配置文件调整">
-      <change afterPath="$PROJECT_DIR$/apps/absent/utils.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="docs: 添加相关文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/absent/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +153,11 @@
       <workItem from="1726471594047" duration="10346000" />
       <workItem from="1726501186200" duration="4220000" />
       <workItem from="1726505461395" duration="4026000" />
-      <workItem from="1726556069668" duration="13610000" />
+      <workItem from="1726556069668" duration="16323000" />
+      <workItem from="1726661315136" duration="125000" />
+      <workItem from="1726661601646" duration="13000" />
+      <workItem from="1726661803381" duration="649000" />
+      <workItem from="1726671150972" duration="2508000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -278,7 +279,31 @@
       <option name="project" value="LOCAL" />
       <updated>1726567893573</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat: 实现请假类型和审批人API">
+      <option name="closed" value="true" />
+      <created>1726578566622</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726578566622</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor: 优化考勤相关URL">
+      <option name="closed" value="true" />
+      <created>1726578689727</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726578689727</updated>
+    </task>
+    <task id="LOCAL-00018" summary="docs: 添加相关文件">
+      <option name="closed" value="true" />
+      <created>1726578816974</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1726578816974</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +332,9 @@
     <MESSAGE value="docs: 更新README文档" />
     <MESSAGE value="feat: 实现考勤视图集和序列化" />
     <MESSAGE value="chore: 配置文件调整" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: 配置文件调整" />
+    <MESSAGE value="feat: 实现请假类型和审批人API" />
+    <MESSAGE value="refactor: 优化考勤相关URL" />
+    <MESSAGE value="docs: 添加相关文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 添加相关文件" />
   </component>
 </project>
