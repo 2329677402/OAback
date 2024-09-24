@@ -183,3 +183,38 @@ class UserSerializer(serializers.ModelSerializer):
 name = models.CharField(max_length=100, blank=True)  # 表单中可以为空，数据库中存储为空字符串
 description = models.TextField(blank=True, null=True)  # 表单中可以为空，数据库中存储为NULL
 ```
+
+
+
+### 4. ModelSerializer 和 Serializer的区别
+
+> `ModelSerializer` 和 `Serializer` 都是 Django REST framework 中用于序列化数据的类，但它们有一些关键区别：
+
+1. **`ModelSerializer`**:
+   - 自动生成字段：`ModelSerializer` 会根据指定的模型自动生成序列化器字段。
+   - 简化代码：由于字段是自动生成的，使用 `ModelSerializer` 可以减少手动定义字段的代码量。
+   - 内置验证：`ModelSerializer` 会自动包含模型字段的验证逻辑。
+   - Meta 类：需要定义一个 `Meta` 类来指定模型和字段。
+
+2. **`Serializer`**:
+   - 手动定义字段：`Serializer` 需要手动定义每个字段。
+   - 灵活性：由于需要手动定义字段，`Serializer` 提供了更大的灵活性，可以处理更复杂的序列化逻辑。
+   - 适用于非模型数据：`Serializer` 可以用于序列化非模型数据。
+
+示例：
+
+```python
+# 使用 ModelSerializer
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
+
+# 使用 Serializer
+class CustomSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    username = serializers.CharField(max_length=100)
+    email = serializers.EmailField()
+```
+
+`ModelSerializer` 更适合直接与 Django 模型交互，而 `Serializer` 则适用于需要自定义序列化逻辑或处理非模型数据的情况。

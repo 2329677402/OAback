@@ -53,3 +53,6 @@ class Absent(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     # 10、审批回复内容，表单中可以为空
     response_content = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ["-create_time"] # 按照请假发起时间降序排列

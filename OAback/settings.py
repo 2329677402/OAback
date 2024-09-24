@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',  # 安装跨域中间件
     'apps.oaauth',  # 安装用户app
     'apps.absent',  # 安装考勤app
+    "apps.inform", # 安装通知app
 ]
 
 MIDDLEWARE = [
