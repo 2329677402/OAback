@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# 使用 `"apps.image.apps.ImageConfig"` 和 `"apps.image"` 在 `INSTALLED_APPS` 中的结果是一样的.
+# 两者都会安装 `apps.image` 应用程序，只是前者显式地指定了配置类，而后者依赖于 Django 的默认查找机制.
 INSTALLED_APPS = [
     # 'django.contrib.admin',
     'django.contrib.auth',
@@ -39,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # 安装rest_framework
     'corsheaders',  # 安装跨域中间件
-    'apps.oaauth',  # 安装用户app
-    'apps.absent',  # 安装考勤app
-    "apps.inform", # 安装通知app
+    'apps.oaauth.apps.OaauthConfig',  # 安装用户app
+    'apps.absent.apps.AbsentConfig',  # 安装考勤app
+    "apps.inform.apps.InformConfig",  # 安装通知app
+    "apps.staff.apps.StaffConfig",  # 安装员工app
+    "apps.image.apps.ImageConfig"  # 安装图片app
 ]
 
 MIDDLEWARE = [
@@ -148,7 +152,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ['apps.oaauth.authentications.UserTokenAuthentication'],
     # 配置默认分页器, 全局分页
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2,
+    'PAGE_SIZE': 10,
 }
 
 APPEND_SLASH = False  # 关闭Django的url末尾添加 "/" 功能

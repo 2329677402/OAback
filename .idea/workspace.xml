@@ -4,24 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加考勤列表分页">
-      <change afterPath="$PROJECT_DIR$/apps/absent/migrations/0003_alter_absent_options.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/inform/views.py" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 发布通知功能后端实现">
+      <change afterPath="$PROJECT_DIR$/apps/image/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/image/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/staff/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/absent/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/absent/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +71,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Django 服务器.OAback.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Project/OA_System/OAback",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Django 服务器.OAback.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/OA_System/OAback&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\OA_System\OAback\apps" />
@@ -175,7 +176,10 @@
       <workItem from="1726842007609" duration="4748000" />
       <workItem from="1727019040969" duration="2906000" />
       <workItem from="1727105012577" duration="1814000" />
-      <workItem from="1727192066192" duration="6648000" />
+      <workItem from="1727192066192" duration="6849000" />
+      <workItem from="1727199323004" duration="78000" />
+      <workItem from="1727199406290" duration="320000" />
+      <workItem from="1727524344880" duration="3599000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -329,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726678468596</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: 发布通知功能后端实现">
+      <option name="closed" value="true" />
+      <created>1727199159931</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1727199159931</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +374,7 @@
     <MESSAGE value="refactor: 优化考勤相关URL" />
     <MESSAGE value="docs: 添加相关文件" />
     <MESSAGE value="feat: 添加考勤列表分页" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加考勤列表分页" />
+    <MESSAGE value="feat: 发布通知功能后端实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 发布通知功能后端实现" />
   </component>
 </project>
