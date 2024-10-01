@@ -55,4 +55,7 @@ class UploadImageView(APIView):
             })
         else:
             print(serializer.errors.values())
-            return Response(list(serializer.errors.values())[0][0])
+            return Response({
+                "errno": 1,  # 只要不等于 0 就行
+                "message": list(serializer.errors.values())[0][0]
+            })

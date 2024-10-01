@@ -33,13 +33,14 @@ class LoginCheckMiddleware(MiddlewareMixin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # 对于那些不需要登录即可访问的视图，设置白名单
-        self.white_list = ["/auth/login", "/auth/register"]
+        self.white_list = ["/auth/login"]
 
     def process_view(self, request, view_func, view_args, view_kwargs):
         """请求到达视图之前"""
 
-        if request.path in self.white_list:
-            request.user = AnonymousUser()
+        # 如果请求路径在白名单中，或者请求路径是media(静态资源文件)的路径, 则不需要登录即可访问
+        if request.path in self.white_list or request.path.startswith(settings.MEDIA_URL):
+            request.user = AnonymousUser()  # 匿名用户
             request.auth = None
             return None
 
