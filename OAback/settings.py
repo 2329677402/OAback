@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-vq@_n*hy*)@bs443bt4x@sld#mr-0k#e!q^(gj7hs!%t&0@rtg'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# 安全警告：请勿在生产环境中开启调试运行!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'apps.absent.apps.AbsentConfig',  # 安装考勤app
     "apps.inform.apps.InformConfig",  # 安装通知app
     "apps.staff.apps.StaffConfig",  # 安装员工app
-    "apps.image.apps.ImageConfig"  # 安装图片app
+    "apps.image.apps.ImageConfig"  # 上传图片app
 ]
 
 MIDDLEWARE = [
@@ -132,6 +132,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = BASE_DIR / 'media'  # 媒体文件路径
+MEDIA_URL = '/media/'  # 媒体文件访问路径
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
