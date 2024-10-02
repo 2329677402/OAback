@@ -13,12 +13,21 @@ from apps.oaauth.serializers import UserSerializer, DepartmentSerializer
 from apps.oaauth.models import OADepartment
 
 
+class InformReadSerializer(serializers.ModelSerializer):
+    """通知阅读序列化器"""
+
+    class Meta:
+        model = InformRead
+        fields = '__all__'
+
+
 class InformSerializer(serializers.ModelSerializer):
     """通知序列化器"""
     author = UserSerializer(read_only=True)
     departments = DepartmentSerializer(read_only=True, many=True)
     # departments_ids: 是一个包含部门id的列表, 如果后端要接收列表, 需要使用ListField
     department_ids = serializers.ListField(write_only=True)
+    reads = InformReadSerializer(many=True, read_only=True)
 
     class Meta:
         model = Inform
@@ -46,3 +55,8 @@ class InformSerializer(serializers.ModelSerializer):
             inform.departments.set(departments)  # 清除原来的部门, 并设置过滤后的部门
             inform.save()
         return inform
+
+
+class ReadInformSerializer(serializers.Serializer):
+    """阅读量序列化器"""
+    inform_pk = serializers.IntegerField(error_messages={'required': '请传入inform的id!'})  # 通知id

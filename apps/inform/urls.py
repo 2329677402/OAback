@@ -8,6 +8,7 @@
 """
 from rest_framework.routers import DefaultRouter
 from . import views
+from django.urls import path
 
 app_name = 'inform'
 
@@ -15,4 +16,6 @@ app_name = 'inform'
 router = DefaultRouter(trailing_slash=False)  # 禁用url末尾斜杠
 router.register('inform', views.InformViewSet, basename='inform')  # 注册通知视图集
 
-urlpatterns = [] + router.urls
+urlpatterns = [
+    path('inform/read', views.ReadInformView.as_view(), name='inform_read'),  # 阅读量统计
+] + router.urls
