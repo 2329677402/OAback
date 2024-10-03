@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 使用Celery异步发送邮件">
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 激活员工账号功能实现">
+      <change afterPath="$PROJECT_DIR$/apps/staff/paginations.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/media/KsKGTZsEXQSB5uxtMtWLNs.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/media/UhZNmEmbL8sKKktqNJdNdg.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/media/bYtWaACEVun4sraKuu6zQ8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/activate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/oaauth/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/staff/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/staff/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/oaauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/oaauth/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/staff/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/geUFhPMMhBMWnJ9T3pU3Wc.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/49qgH7dFNVe65PBL4FQ38L.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +181,7 @@
       <workItem from="1727618557926" duration="1861000" />
       <workItem from="1727695415913" duration="38394000" />
       <workItem from="1727863572053" duration="18056000" />
-      <workItem from="1727959166603" duration="2003000" />
+      <workItem from="1727959166603" duration="4394000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -403,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727936022496</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="feat: 激活员工账号功能实现">
+      <option name="closed" value="true" />
+      <created>1727961408769</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1727961408769</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,6 +448,7 @@
     <MESSAGE value="feat: 通知列表阅读状态实现" />
     <MESSAGE value="feat: 发送激活员工账号邮件" />
     <MESSAGE value="feat: 使用Celery异步发送邮件" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 使用Celery异步发送邮件" />
+    <MESSAGE value="feat: 激活员工账号功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 激活员工账号功能实现" />
   </component>
 </project>

@@ -24,6 +24,9 @@ from .tasks import send_mail_task
 from django.views import View
 from django.http.response import JsonResponse
 from urllib import parse
+from rest_framework import generics, exceptions
+from apps.oaauth.serializers import UserSerializer
+from .paginations import StaffListPagination
 
 OAUser = get_user_model()  # 获取用户模型
 aes = aeser.AESCipher(settings.SECRET_KEY)  # 创建加密对象
@@ -75,18 +78,35 @@ class ActivateStaffView(View):
             return JsonResponse({'code': 400, 'msg': 'token错误!'})
 
 
-class StaffView(APIView):
+class StaffView(generics.ListCreateAPIView):
     """员工视图"""
+    queryset = OAUser.objects.all()
+    pagination_class = StaffListPagination # 使用员工列表分页器
+
+    def get_serializer_class(self):
+        """StaffView类中, 需要使用两个serializer, 视不同的请求方法, 返回不同的serializer"""
+        if self.request.method == 'GET':
+            return UserSerializer # 返回员工列表
+        else:
+            return AddStaffSerializer # 添加员工账号
 
     # 员工列表
-    @staticmethod
-    def get(request):
-        token = "unGKeqffNBqpwNP1MRzIXdnY6/l4izEmCfH0ds0KHnI="
-        result = aes.decrypt(token)  # 解密token
-        return Response(data={'email': result}, status=status.HTTP_200_OK)
+    def get_queryset(self):
+        queryset = self.queryset
+        # 返回员工列表逻辑
+        # 1. 如果是董事会, 返回所有员工
+        # 2. 如果不是董事会, 但是是部门leader, 返回部门员工
+        # 3. 如果不是董事会, 也不是部门leader, 那么抛出403异常
+        user = self.request.user
+        if user.department.name != '董事会':
+            if user.uid != user.department.leader.uid:
+                raise exceptions.PermissionDenied('您没有权限查看员工列表!')
+            else:
+                queryset = queryset.filter(department_id=user.department_id)
+        return queryset.order_by('-date_joined').all()
 
     # 添加员工账号
-    def post(self, request):
+    def create(self, request, *args, **kwargs):
         # Tips: 1. 如果用的是视图集, 那么视图集会自动把request放到context中
         #       2. 如果是继承至APIView, 那么需要手动把request对象传递给context
         serializer = AddStaffSerializer(data=request.data, context={'request': request})

@@ -97,6 +97,9 @@ class OAUser(AbstractBaseUser, PermissionsMixin):
         """返回真实姓名"""
         return self.realname
 
+    # class Meta:
+    #     ordering = ('-date_joined',) # 按照注册时间倒序排列
+
 
 class OADepartment(models.Model):
     """部门模型表"""
