@@ -25,7 +25,7 @@ python manage.py createsuperuser
 
 ## 配置问题
 
-### 1、数据库
+### 1. 数据库
 
 ```python
 DATABASES = {
@@ -42,7 +42,7 @@ DATABASES = {
 
 
 
-### 2、时区及语言
+### 2. 时区及语言
 
 - **设置时区**: 在 `settings.py` 中，将`TIME_ZONE` 设置为 `'Asia/Shanghai'`，`USE_TZ` 设置为`False`, 关闭时区支持，这是适用于中国的时区标识符.
 
@@ -59,7 +59,7 @@ DATABASES = {
 
 
 
-### 3、中间件
+### 3. 中间件
 
 ```python
 MIDDLEWARE = [
@@ -78,9 +78,16 @@ MIDDLEWARE = [
 
 
 
+### 4. Celery
+
+- Linux：`celery -A oaback worker -l INFO`
+- Windows：`celery -A oaback worker -l INFO -P gevent`
+
+
+
 ## 报错问题
 
-### 1、数据库未正确识别
+### 1. 数据库未正确识别
 
 ![image-20240909004334643](assets/image-20240909004334643.png)
 
@@ -98,7 +105,7 @@ pymysql.install_as_MySQLdb()
 
 ## Tips
 
-### 1、Meta类的作用
+### 1. Meta类的作用
 
 > Meta类在Django的序列化器和模型中用于定义一些元数据，这些元数据可以控制序列化器或模型的行为。以下是一些常见的用途：
 
@@ -133,7 +140,7 @@ class OAUser(models.Model):
 
 
 
-### 2、嵌套序列化器
+### 2. 嵌套序列化器
 
 代码示例：
 
@@ -168,14 +175,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 
-### 3、blank和null的区别
+### 3. blank和null的区别
 
 > 在Django模型字段中，`blank`和`null`有不同的含义和用途：
 
 - `blank=True`：表示该字段在==表单==中可以为空。它主要用于**表单验证**，允许用户在表单中不填写该字段。
 - `null=True`：表示该字段在==数据库==中可以存储NULL值。它主要用于**数据库层面**，允许在数据库中存储NULL值。
 
-通常情况下，对于字符串类型的字段（如`CharField`和`TextField`），你可能会设置`blank=True`而不设置`null=True`，因为Django会将空字符串存储为`""`而不是`NULL`。对于其他类型的字段（如`IntegerField`、`DateField`等），你可能会同时设置`blank=True`和`null=True`，以允许在表单和数据库中都为空。
+通常情况下，对于字符串类型的字段（如`CharField`和`TextField`），你可能会设置`blank=True`而不设置`null=True`，因为Django会将空字符串存储为`""`而不是`NULL`。对于其他类型的字段（如`IntegerField`. `DateField`等），你可能会同时设置`blank=True`和`null=True`，以允许在表单和数据库中都为空。
 
 例如：
 

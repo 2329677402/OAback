@@ -20,6 +20,7 @@ from django.conf import settings
 from utils import aeser
 from django.urls import reverse
 from OAback.celery import debug_task
+from .tasks import send_mail_task
 
 OAUser = get_user_model()  # 获取用户模型
 aes = aeser.AESCipher(settings.SECRET_KEY)  # 创建加密对象
@@ -85,8 +86,10 @@ class StaffView(APIView):
         # 针对邮箱要进行加密处理, 不能直接暴露在链接中: 使用AES加密算法
         # 请点击链接激活账号: http://127.0.0.1:8000/staff/activate?token=unGKeqffNBqpwNP1MRzIXdnY6/l4izEmCfH0ds0KHnI=
         message = f'请点击链接激活账号: {activate_url}'
-        send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message,
-                  from_email=settings.DEFAULT_FROM_EMAIL)
+        subject = '[OA System] 账号激活!'
+        # send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message,
+        #           from_email=settings.DEFAULT_FROM_EMAIL)
+        send_mail_task.delay(email, subject, message)
 
 class TestCeleryView(APIView):
     """测试Celery异步任务"""
