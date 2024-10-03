@@ -72,3 +72,32 @@ you should set broker_connection_retry_on_startup to True.
 2024-10-03 14:02:18,590 - celery.worker.pidbox - INFO - pidbox: Connected to redis://127.0.0.1:6379/1.
 2024-10-03 14:02:51,855 - celery.worker.strategy - INFO - Task send_mail_task[0dd7f3b7-f4b3-4061-af19-6af4c73e781f] received
 2024-10-03 14:02:53,189 - celery.app.trace - INFO - Task send_mail_task[0dd7f3b7-f4b3-4061-af19-6af4c73e781f] succeeded in 1.327999999979511s: None
+2024-10-03 14:24:32,975 - celery.worker.strategy - INFO - Task send_mail_task[714a7859-e014-4928-9488-6ffa7cdd1e84] received
+2024-10-03 14:24:34,311 - celery.app.trace - INFO - Task send_mail_task[714a7859-e014-4928-9488-6ffa7cdd1e84] succeeded in 1.327999999979511s: None
+2024-10-03 20:40:50,861 - py.warnings - WARNING - D:\Develop\Env\miniconda3\envs\dev_env\Lib\site-packages\celery\worker\consumer\consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+2024-10-03 20:40:50,870 - celery.worker.consumer.connection - INFO - Connected to redis://127.0.0.1:6379/1
+2024-10-03 20:40:50,871 - py.warnings - WARNING - D:\Develop\Env\miniconda3\envs\dev_env\Lib\site-packages\celery\worker\consumer\consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+2024-10-03 20:40:50,873 - celery.worker.consumer.mingle - INFO - mingle: searching for neighbors
+2024-10-03 20:40:51,887 - celery.worker.consumer.mingle - INFO - mingle: all alone
+2024-10-03 20:40:51,905 - py.warnings - WARNING - D:\Develop\Env\miniconda3\envs\dev_env\Lib\site-packages\celery\worker\consumer\consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+2024-10-03 20:40:51,936 - celery.worker.pidbox - INFO - pidbox: Connected to redis://127.0.0.1:6379/1.
+2024-10-03 20:40:51,942 - celery.apps.worker - INFO - celery@Poco ready.
+2024-10-03 20:44:57,128 - celery.worker.strategy - INFO - Task send_mail_task[e9a1d178-d2c6-4e49-9bb9-dc50fa3f9739] received
+2024-10-03 20:44:59,561 - celery.app.trace - INFO - Task send_mail_task[e9a1d178-d2c6-4e49-9bb9-dc50fa3f9739] succeeded in 2.4369999999762513s: None
+2024-10-03 21:13:27,537 - celery.worker.strategy - INFO - Task send_mail_task[28f14f81-a6e8-4640-b5cb-9e2333d733ce] received
+2024-10-03 21:13:29,079 - celery.app.trace - INFO - Task send_mail_task[28f14f81-a6e8-4640-b5cb-9e2333d733ce] succeeded in 1.5320000000065193s: None

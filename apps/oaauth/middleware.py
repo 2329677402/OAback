@@ -33,7 +33,7 @@ class LoginCheckMiddleware(MiddlewareMixin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # 对于那些不需要登录即可访问的视图，设置白名单
-        self.white_list = ["/auth/login"]
+        self.white_list = ["/auth/login", "/staff/activate"]
 
     def process_view(self, request, view_func, view_args, view_kwargs):
         """请求到达视图之前"""

@@ -5,7 +5,6 @@
 @ Author      : Poco Ray
 @ File        : tasks.py
 @ Description : 使用Celery实现异步发送邮件
-
 """
 
 from OAback import celery_app
