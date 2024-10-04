@@ -7,7 +7,7 @@
 @ Description : 实现员工相关视图, 提供部门列表
 """
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, viewsets, mixins
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -78,17 +78,22 @@ class ActivateStaffView(View):
             return JsonResponse({'code': 400, 'msg': 'token错误!'})
 
 
-class StaffView(generics.ListCreateAPIView):
+class StaffViewSet(
+    viewsets.GenericViewSet,
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    mixins.UpdateModelMixin,
+):
     """员工视图"""
     queryset = OAUser.objects.all()
-    pagination_class = StaffListPagination # 使用员工列表分页器
+    pagination_class = StaffListPagination  # 使用员工列表分页器
 
     def get_serializer_class(self):
         """StaffView类中, 需要使用两个serializer, 视不同的请求方法, 返回不同的serializer"""
-        if self.request.method == 'GET':
-            return UserSerializer # 返回员工列表
+        if self.request.method in ['GET', 'PUT']:
+            return UserSerializer  # 返回员工列表
         else:
-            return AddStaffSerializer # 添加员工账号
+            return AddStaffSerializer  # 添加员工账号
 
     # 员工列表
     def get_queryset(self):
@@ -126,6 +131,10 @@ class StaffView(generics.ListCreateAPIView):
             return Response(data={'detail': '员工添加成功!'}, status=status.HTTP_201_CREATED)
         else:
             return Response(data={'detail': list(serializer.errors.values())[0][0]}, status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, *args, **kwargs):
+        kwargs['partial'] = True  # 设置为局部更新
+        return super().update(request, *args, **kwargs)
 
     def send_activate_email(self, email):
         """发送激活邮件"""
