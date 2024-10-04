@@ -15,18 +15,21 @@ from apps.oaauth.models import OADepartment, UserStatusChoices
 from apps.oaauth.serializers import DepartmentSerializer
 from .serializers import AddStaffSerializer, ActivateStaffSerializer
 from django.contrib.auth import get_user_model
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from django.conf import settings
 from utils import aeser
 from django.urls import reverse
 from OAback.celery import debug_task
 from .tasks import send_mail_task
 from django.views import View
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse, HttpResponse
 from urllib import parse
-from rest_framework import generics, exceptions
+from rest_framework import exceptions
 from apps.oaauth.serializers import UserSerializer
 from .paginations import StaffListPagination
+from datetime import datetime
+import pandas as pd
+import json
 
 OAUser = get_user_model()  # 获取用户模型
 aes = aeser.AESCipher(settings.SECRET_KEY)  # 创建加密对象
@@ -95,19 +98,46 @@ class StaffViewSet(
         else:
             return AddStaffSerializer  # 添加员工账号
 
-    # 员工列表
+    # 获取员工列表
     def get_queryset(self):
+        # print(self.request.query_params)  # 获取查询参数
+        # # <QueryDict: {'department_id': ['1'], 'realname': ['Poco'], 'date_joined[]': ['2024-10-02', '2024-10-04'], 'page': ['1'], 'size': ['10']}>
+        department_id = self.request.query_params.get('department_id')
+        realname = self.request.query_params.get('realname')
+        date_joined = self.request.query_params.getlist('date_joined[]')
+
         queryset = self.queryset
         # 返回员工列表逻辑
         # 1. 如果是董事会, 返回所有员工
         # 2. 如果不是董事会, 但是是部门leader, 返回部门员工
         # 3. 如果不是董事会, 也不是部门leader, 那么抛出403异常
+
+        # ① 根据用户的部门ID进行查询
         user = self.request.user
         if user.department.name != '董事会':
             if user.uid != user.department.leader.uid:
                 raise exceptions.PermissionDenied('您没有权限查看员工列表!')
             else:
                 queryset = queryset.filter(department_id=user.department_id)
+        else:
+            # 如果是董事会, 根据部门ID进行查询
+            if department_id:
+                queryset = queryset.filter(department_id=department_id)
+
+        # ② 根据真实姓名进行查询
+        if realname:
+            queryset = queryset.filter(realname__icontains=realname)
+
+        # ③ 根据注册时间进行查询
+        if date_joined:
+            # 格式: ['2024-10-01', '2024-10-10']
+            try:
+                start_date = datetime.strptime(date_joined[0], '%Y-%m-%d')
+                end_date = datetime.strptime(date_joined[1], '%Y-%m-%d')
+                queryset = queryset.filter(date_joined__range=[start_date, end_date])
+            except Exception as e:
+                print(e)
+
         return queryset.order_by('-date_joined').all()
 
     # 添加员工账号
@@ -153,9 +183,58 @@ class StaffViewSet(
         # 请点击链接激活账号: http://127.0.0.1:8000/staff/activate?token=unGKeqffNBqpwNP1MRzIXdnY6/l4izEmCfH0ds0KHnI=
         message = f'请点击链接激活账号: {activate_url}'
         subject = '[OA System] 账号激活!'
-        # send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message,
-        #           from_email=settings.DEFAULT_FROM_EMAIL)
+        # send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message, from_email=settings.DEFAULT_FROM_EMAIL)
         send_mail_task.delay(email, subject, message)
+
+
+class StaffDownloadView(APIView):
+    """员工数据下载"""
+
+    @staticmethod
+    def get(request):
+        # /staff/download?pks=[1 ,2 ,3]
+        # 需要格式: ['1', '2', '3'] -> 实际格式: [1, 2, 3]
+        pks = request.query_params.get('pks')  # 需要下载的员工列表
+        try:
+            pks = json.loads(pks)  # JSON格式字符串 -> 列表, [1 ,2 ,3] -> ['1', '2', '3']
+        except Exception as e:
+            print(e)
+            return Response(data={'detail': '参数错误!'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # 权限管理
+            # 1. 董事会可以下载所有员工数据
+            # 2. 部门leader只能下载本部门员工数据
+            # 3. 普通员工无法下载员工数据
+            current_user = request.user
+            queryset = OAUser.objects
+            if current_user.department.name != '董事会':
+                if current_user.uid != current_user.department.leader_id:
+                    # 普通员工
+                    return Response(data={'detail': '您没有权限下载员工数据!'}, status=status.HTTP_403_FORBIDDEN)
+                else:
+                    # 部门leader
+                    queryset = queryset.filter(department_id=current_user.department_id)
+            # 董事会
+            queryset = queryset.filter(pk__in=pks)
+            # 使用values提取需要用于生成excel表格中展示的字段, 而不是全部字段
+            result = queryset.values('realname', 'email', 'department__name', 'date_joined', 'status')
+
+            ###################使用Pandas处理Excel表格#####################
+            # Tips: result是一个QuerySet对象, 需要转换成python对象, 才能使用pandas进行数据处理
+            staff_df = pd.DataFrame(list(result))
+            staff_df.rename(
+                columns={'realname': '姓名', 'email': '邮箱', 'department__name': '所属部门',
+                         'date_joined': '入职日期', 'status': '状态'}, inplace=True)  # 重命名列名
+            response = HttpResponse(content_type='application/xlsx')  # 设置响应头
+            response['Content-Disposition'] = 'attachment; filename=员工信息.xlsx'  # 设置下载文件名
+            # 将staff_df数据写入到response中
+            with pd.ExcelWriter(response) as writer:
+                staff_df.to_excel(writer, sheet_name='员工信息')
+            return response
+        except Exception as e:
+            print(e)
+            return Response(data={'detail': '下载失败!'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TestCeleryView(APIView):

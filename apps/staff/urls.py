@@ -19,5 +19,6 @@ urlpatterns = [
     path('departments', DepartmentListView.as_view(), name='departments'),
     # path('staff', StaffView.as_view(), name='staff'),
     path('activate', ActivateStaffView.as_view(), name='activate'),
+    path('download', StaffDownloadView.as_view(), name='download'),
     path('test/celery', TestCeleryView.as_view(), name='test_celery'),
 ] + router.urls
