@@ -13,7 +13,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from apps.oaauth.models import OADepartment, UserStatusChoices
 from apps.oaauth.serializers import DepartmentSerializer
-from .serializers import AddStaffSerializer, ActivateStaffSerializer
+from .serializers import AddStaffSerializer, ActivateStaffSerializer, StaffUploadSerializer
 from django.contrib.auth import get_user_model
 # from django.core.mail import send_mail
 from django.conf import settings
@@ -30,9 +30,31 @@ from .paginations import StaffListPagination
 from datetime import datetime
 import pandas as pd
 import json
+from django.db import transaction  # 事务处理
 
 OAUser = get_user_model()  # 获取用户模型
 aes = aeser.AESCipher(settings.SECRET_KEY)  # 创建加密对象
+
+
+def send_activate_email(request, email):
+    """发送激活邮件"""
+    token = aes.encrypt(email)  # 加密邮箱, 保存到token字符串中
+    # 拼接激活path路径, 例如: /staff/activate?token=xxxx
+    # activate_path = reverse('staff:activate') + f'?token={token}'
+    # 现代浏览器会自动处理 URL 编码和解码. 但是, 为了确保最大兼容性, 还是建议使用 urllib.parse.urlencode() 来处理 URL 查询字符串.
+    activate_path = reverse('staff:activate') + '?' + parse.urlencode({'token': token})
+    # 拼接激活url链接, 例如: http://127.0.0.1:8000/staff/activate?token=xxxx
+    # build_absolute_uri: 构建绝对url路径
+    activate_url = request.build_absolute_uri(activate_path)
+
+    # 发送一个链接, 让用户点击这个链接后, 跳转到激活页面, 激活账号
+    # 为了区分用户, 在发送链接邮件中, 这个链接中需要包含用户的邮箱
+    # 针对邮箱要进行加密处理, 不能直接暴露在链接中: 使用AES加密算法
+    # 请点击链接激活账号: http://127.0.0.1:8000/staff/activate?token=unGKeqffNBqpwNP1MRzIXdnY6/l4izEmCfH0ds0KHnI=
+    message = f'请点击链接激活账号: {activate_url}'
+    subject = '[OA System] 账号激活!'
+    # send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message, from_email=settings.DEFAULT_FROM_EMAIL)
+    send_mail_task.delay(email, subject, message)
 
 
 class DepartmentListView(ListAPIView):
@@ -156,7 +178,7 @@ class StaffViewSet(
             user.save()
 
             # 2. 发送激活邮件
-            self.send_activate_email(email)
+            send_activate_email(request, email)
 
             return Response(data={'detail': '员工添加成功!'}, status=status.HTTP_201_CREATED)
         else:
@@ -165,26 +187,6 @@ class StaffViewSet(
     def update(self, request, *args, **kwargs):
         kwargs['partial'] = True  # 设置为局部更新
         return super().update(request, *args, **kwargs)
-
-    def send_activate_email(self, email):
-        """发送激活邮件"""
-        token = aes.encrypt(email)  # 加密邮箱, 保存到token字符串中
-        # 拼接激活path路径, 例如: /staff/activate?token=xxxx
-        # activate_path = reverse('staff:activate') + f'?token={token}'
-        # 现代浏览器会自动处理 URL 编码和解码. 但是, 为了确保最大兼容性, 还是建议使用 urllib.parse.urlencode() 来处理 URL 查询字符串.
-        activate_path = reverse('staff:activate') + '?' + parse.urlencode({'token': token})
-        # 拼接激活url链接, 例如: http://127.0.0.1:8000/staff/activate?token=xxxx
-        # build_absolute_uri: 构建绝对url路径
-        activate_url = self.request.build_absolute_uri(activate_path)
-
-        # 发送一个链接, 让用户点击这个链接后, 跳转到激活页面, 激活账号
-        # 为了区分用户, 在发送链接邮件中, 这个链接中需要包含用户的邮箱
-        # 针对邮箱要进行加密处理, 不能直接暴露在链接中: 使用AES加密算法
-        # 请点击链接激活账号: http://127.0.0.1:8000/staff/activate?token=unGKeqffNBqpwNP1MRzIXdnY6/l4izEmCfH0ds0KHnI=
-        message = f'请点击链接激活账号: {activate_url}'
-        subject = '[OA System] 账号激活!'
-        # send_mail(f'[OA System] 账号激活!', recipient_list=[email], message=message, from_email=settings.DEFAULT_FROM_EMAIL)
-        send_mail_task.delay(email, subject, message)
 
 
 class StaffDownloadView(APIView):
@@ -235,6 +237,73 @@ class StaffDownloadView(APIView):
         except Exception as e:
             print(e)
             return Response(data={'detail': '下载失败!'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class StaffUploadView(APIView):
+    """员工数据上传"""
+
+    @staticmethod
+    def post(request):
+        serializer = StaffUploadSerializer(data=request.data)
+        if serializer.is_valid():
+            file = serializer.validated_data.get('file')
+
+            # 判断用户的权限是否可以上传员工数据
+            current_user = request.user
+            if current_user.department.name != '董事会' or current_user.uid != current_user.department.leader_id:
+                return Response(data={'detail': '您没有权限上传员工数据!'}, status=status.HTTP_403_FORBIDDEN)
+
+            # 读取上传的文件, 每读取一行数据, 就创建一个OAUser对象
+            staff_df = pd.read_excel(file)
+            users = []  # 保存创建的员工对象
+            for index, row in staff_df.iterrows():  # iterrows()方法: 迭代器, 每次循环返回一行数据
+                # 获取部门信息
+                if current_user.department.name != '董事会':
+                    department = current_user.department  # 将OAUser对象的部门设置为部门leader所在的部门
+                else:
+                    try:
+                        department = OADepartment.objects.filter(name=row['部门']).first()  # 将OAUser对象的部门设置为Excel中填写的部门
+                        # Excel中填写未录入的部门
+                        if not department:
+                            return Response(data={'detail': f'{row["部门"]}不存在!'},
+                                            status=status.HTTP_400_BAD_REQUEST)
+                    except Exception as e:
+                        print(e)
+                        # Excel中的表头行或列标题中未找到“部门”列
+                        return Response(data={'detail': '<部门>列标题不存在!'}, status=status.HTTP_400_BAD_REQUEST)
+
+                # 创建员工账号
+                try:
+                    email = row['邮箱']
+                    realname = row['姓名']
+                    password = '111111'  # 默认密码
+                    # Tips: 避免使用create_user方法, 考虑到当前在for循环中, 每次创建用户都会连接数据库, 会影响性能.
+                    # user = OAUser.objects.create_user(email=email, realname=realname, department=department, status=UserStatusChoices.UNACTIVATED)
+                    user = OAUser(email=email, realname=realname, department=department,
+                                  status=UserStatusChoices.UNACTIVATED)
+                    user.set_password(password)
+                    users.append(user)
+
+                except Exception as e:
+                    print(e)
+                    return Response(data={'detail': '请检查Excel文件中的表头行!'}, status=status.HTTP_400_BAD_REQUEST)
+
+            try:
+                # 统一把users列表中的员工数据保存到数据库中
+                # 考虑到导入的数据中可能存在数据重复等特殊情况, 这里使用事务处理, 即: 要么全部成功, 要么全部失败
+                with transaction.atomic():
+                    OAUser.objects.bulk_create(users)
+            except Exception as e:
+                print(e)
+                return Response(data={'detail': '员工数据导入失败!'}, status=status.HTTP_400_BAD_REQUEST)
+
+            # 异步给每个员工发送激活邮件
+            for user in users:
+                send_activate_email(request, user.email)
+            return Response(data={'detail': '员工数据导入成功!'}, status=status.HTTP_201_CREATED)
+        else:
+            detail = list(serializer.errors.values())[0][0]
+            return Response(data={'detail': detail}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TestCeleryView(APIView):

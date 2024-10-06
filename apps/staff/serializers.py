@@ -6,16 +6,20 @@
 @ File        : serializers.py
 @ Description : 实现员工相关序列化器
 """
+from django.core.validators import FileExtensionValidator
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
-OAUser = get_user_model() # 获取用户模型
+OAUser = get_user_model()  # 获取用户模型
+
 
 class AddStaffSerializer(serializers.Serializer):
     """添加员工校验"""
-    realname = serializers.CharField(max_length=20, error_messages={'required': '请输入姓名!', 'max_length': '姓名长度不能超过20个字符!'})
+    realname = serializers.CharField(max_length=20, error_messages={'required': '请输入姓名!',
+                                                                    'max_length': '姓名长度不能超过20个字符!'})
     email = serializers.EmailField(error_messages={'required': '请输入邮箱!', 'invalid': '邮箱格式错误!'})
-    password = serializers.CharField(max_length=20, error_messages={'required': '请输入密码!', 'max_length': '密码长度不能超过20个字符!'})
+    password = serializers.CharField(max_length=20, error_messages={'required': '请输入密码!',
+                                                                    'max_length': '密码长度不能超过20个字符!'})
 
     def validate(self, attrs):
         """自定义校验"""
@@ -31,10 +35,12 @@ class AddStaffSerializer(serializers.Serializer):
 
         return attrs
 
+
 class ActivateStaffSerializer(serializers.Serializer):
     """激活员工账号校验"""
     email = serializers.EmailField(error_messages={'required': '请输入邮箱!', 'invalid': '邮箱格式错误!'})
-    password = serializers.CharField(max_length=20, error_messages={'required': '请输入密码!', 'max_length': '密码长度不能超过20个字符!'})
+    password = serializers.CharField(max_length=20, error_messages={'required': '请输入密码!',
+                                                                    'max_length': '密码长度不能超过20个字符!'})
 
     def validate(self, attrs):
         """自定义校验"""
@@ -46,3 +52,13 @@ class ActivateStaffSerializer(serializers.Serializer):
             raise serializers.ValidationError('邮箱或密码错误!')
         attrs['user'] = user
         return attrs
+
+
+class StaffUploadSerializer(serializers.Serializer):
+    """员工信息上传校验"""
+    file = serializers.FileField(
+        validators=[FileExtensionValidator(['xls', 'xlsx'])],  # 限制文件格式
+        error_messages={
+            'required': '请上传文件!',
+            'invalid_extension': '文件格式不支持, 请上传 xls/xlsx 格式的文件!',
+        })
