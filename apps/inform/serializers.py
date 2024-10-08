@@ -32,7 +32,7 @@ class InformSerializer(serializers.ModelSerializer):
     class Meta:
         model = Inform
         fields = '__all__'
-        # 用于指定哪些字段在序列化时是只读的. 在validate时, 会忽略这些字段.
+        # read_only_fields: 用于指定哪些字段在序列化时是只读的. 在validate时, 会忽略这些字段.
         read_only_fields = ('public',)  # 注意: 这里需要定义为列表或元组
 
     def create(self, validated_data):

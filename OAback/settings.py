@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'apps.absent.apps.AbsentConfig',  # 安装考勤app
     "apps.inform.apps.InformConfig",  # 安装通知app
     "apps.staff.apps.StaffConfig",  # 安装员工app
-    "apps.image.apps.ImageConfig"  # 上传图片app
+    "apps.image.apps.ImageConfig",  # 上传图片app
+    "apps.home.apps.HomeConfig"  # 首页app
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/' # 静态文件访问路径
+STATIC_URL = 'static/'  # 静态文件访问路径
 STATICFILES_DIRS = [BASE_DIR / 'static']  # 静态文件读取目录
 
 MEDIA_ROOT = BASE_DIR / 'media'  # 媒体文件路径
@@ -170,9 +171,16 @@ EMAIL_HOST_USER = "3157043973@qq.com"  # 发送邮件的QQ邮箱账号
 EMAIL_HOST_PASSWORD = "cjczahqenepjddhh"  # QQ邮箱的授权码
 DEFAULT_FROM_EMAIL = "3157043973@qq.com"  # 默认发件人
 
-
 # Celery配置, 用于异步任务
 # 中间人的配置
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
 # 指定结果的接受地址
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/2'
+
+# 缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+    }
+}

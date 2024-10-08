@@ -225,3 +225,174 @@ class CustomSerializer(serializers.Serializer):
 ```
 
 `ModelSerializer` 更适合直接与 Django 模型交互，而 `Serializer` 则适用于需要自定义序列化逻辑或处理非模型数据的情况。
+
+
+
+### 5. View继承
+
+> 在 `views.py` 中，类通常会继承以下父类：
+
+1. **APIView**:
+   - 适用于需要处理单一 HTTP 方法（如 GET、POST 等）或少量方法的视图。
+   - 提供了基本的请求处理功能，如解析请求数据、返回响应等。
+
+2. **View**:
+   - 适用于需要完全自定义请求处理逻辑的视图。
+   - 不提供任何默认的请求处理功能，需要手动实现所有逻辑。
+
+3. **ViewSet**:
+   - 适用于需要处理一组相关的视图操作（如列表、创建、检索、更新、删除）的视图。
+   - 提供了默认的 CRUD 操作，可以通过路由器自动生成 URL 路由。
+
+> 具体使用场景
+
+- **继承 `APIView`**:
+  - 当你只需要处理单一或少量的 HTTP 方法时。
+  - 例如，展示最新的通知或处理简单的表单提交。
+
+```python
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class LatestInformView(APIView):
+    """展示最新的10条通知"""
+    @staticmethod
+    def get(request):
+        # 处理 GET 请求的逻辑
+        return Response({'msg': '最新的10条通知'})
+```
+
+- **继承 `View`**:
+  - 当你需要完全自定义请求处理逻辑时。
+  - 例如，处理复杂的业务逻辑或需要自定义请求和响应的格式。
+
+```python
+from django.views import View
+from django.http import JsonResponse
+
+class CustomView(View):
+    """自定义视图"""
+    def get(self, request):
+        # 自定义 GET 请求的处理逻辑
+        return JsonResponse({'msg': '自定义响应'})
+```
+
+- **继承 `ViewSet`**:
+  - 当你需要处理一组相关的视图操作时。
+  - 例如，处理用户的增删改查操作。
+
+```python
+from rest_framework.viewsets import ViewSet
+from rest_framework.response import Response
+
+class UserViewSet(ViewSet):
+    """用户视图集"""
+    def list(self, request):
+        # 处理列表请求的逻辑
+        return Response({'msg': '用户列表'})
+
+    def create(self, request):
+        # 处理创建请求的逻辑
+        return Response({'msg': '创建用户'})
+```
+
+选择继承哪个父类取决于视图的具体需求和复杂度。
+
+
+
+> 在 `views.py` 中，除了 `APIView`、`View` 和 `ViewSet`，还有其他常用的父类可以继承，具体取决于你的需求：
+
+1. **GenericAPIView**:
+   - 提供了更细粒度的控制，可以与混入类（mixins）结合使用。
+   - 适用于需要部分定制但仍希望利用一些通用行为的视图。
+
+2. **ListAPIView**:
+   - 适用于只需要处理 GET 请求并返回一个对象列表的视图。
+   - 提供了分页、过滤和排序功能。
+
+3. **CreateAPIView**:
+   - 适用于只需要处理 POST 请求并创建一个新对象的视图。
+
+4. **RetrieveAPIView**:
+   - 适用于只需要处理 GET 请求并返回一个单一对象的视图。
+
+5. **UpdateAPIView**:
+   - 适用于只需要处理 PUT 和 PATCH 请求并更新一个对象的视图。
+
+6. **DestroyAPIView**:
+   - 适用于只需要处理 DELETE 请求并删除一个对象的视图。
+
+> 具体使用场景
+
+- **继承 `GenericAPIView`**:
+  - 当你需要部分定制但仍希望利用一些通用行为时。
+
+```python
+from rest_framework.generics import GenericAPIView
+from rest_framework import mixins
+
+class CustomGenericView(GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    """自定义通用视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```
+
+- **继承 `ListAPIView`**:
+  - 当你只需要处理 GET 请求并返回一个对象列表时。
+
+```python
+from rest_framework.generics import ListAPIView
+
+class MyListView(ListAPIView):
+    """对象列表视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```
+
+- **继承 `CreateAPIView`**:
+  - 当你只需要处理 POST 请求并创建一个新对象时。
+
+```python
+from rest_framework.generics import CreateAPIView
+
+class MyCreateView(CreateAPIView):
+    """创建对象视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```
+
+- **继承 `RetrieveAPIView`**:
+  - 当你只需要处理 GET 请求并返回一个单一对象时。
+
+```python
+from rest_framework.generics import RetrieveAPIView
+
+class MyRetrieveView(RetrieveAPIView):
+    """获取单一对象视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```
+
+- **继承 `UpdateAPIView`**:
+  - 当你只需要处理 PUT 和 PATCH 请求并更新一个对象时。
+
+```python
+from rest_framework.generics import UpdateAPIView
+
+class MyUpdateView(UpdateAPIView):
+    """更新对象视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```
+
+- **继承 `DestroyAPIView`**:
+  - 当你只需要处理 DELETE 请求并删除一个对象时。
+
+```python
+from rest_framework.generics import DestroyAPIView
+
+class MyDestroyView(DestroyAPIView):
+    """删除对象视图"""
+    queryset = MyModel.objects.all()
+    serializer_class = MyModelSerializer
+```

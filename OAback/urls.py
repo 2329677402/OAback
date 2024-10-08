@@ -26,4 +26,5 @@ urlpatterns = [
     path('inform/', include('apps.inform.urls')),
     path('staff/', include('apps.staff.urls')),
     path('image/', include('apps.image.urls')),
+    path('home/', include('apps.home.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # 配置上传图片的路由, 方便访问上传的图片
