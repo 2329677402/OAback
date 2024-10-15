@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 实现Redis缓存首页API(员工统计,最新考勤和最新通知)">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 更新忽略文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,7 @@
       <workItem from="1728738580939" duration="16000" />
       <workItem from="1728738617533" duration="81000" />
       <workItem from="1728752478831" duration="4083000" />
-      <workItem from="1728925892473" duration="63000" />
+      <workItem from="1728925892473" duration="2071000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -459,7 +459,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728401753412</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="feat: 更新忽略文件">
+      <option name="closed" value="true" />
+      <created>1728926012696</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1728926012696</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +486,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="docs: 添加考勤模块配置项" />
     <MESSAGE value="feat: 实现考勤视图集和序列化功能" />
     <MESSAGE value="docs: 更新注释文档" />
     <MESSAGE value="docs: 更新README文档" />
@@ -503,6 +510,7 @@
     <MESSAGE value="feat: 员工数据下载Excel后端实现" />
     <MESSAGE value="feat: 上传员工后端实现" />
     <MESSAGE value="feat: 实现Redis缓存首页API(员工统计,最新考勤和最新通知)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 实现Redis缓存首页API(员工统计,最新考勤和最新通知)" />
+    <MESSAGE value="feat: 更新忽略文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 更新忽略文件" />
   </component>
 </project>
