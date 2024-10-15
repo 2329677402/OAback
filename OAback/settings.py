@@ -184,3 +184,43 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379/3",
     }
 }
+
+# 日志配置
+LOGGING = {
+    "version": 1,
+    'disable_existing_loggers': True,
+    # 输出日志格式
+    'formatters': {
+        # 详细的日志格式
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        # 简单的日志格式
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    # 过滤器
+    'handlers': {
+        # 控制台输出信息
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        # 日志文件位置
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/data/log/oa.log',
+            'formatter': 'verbose'
+        },
+    },
+    # 日志处理器
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+    },
+}
