@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 更新忽略文件">
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加api路径">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/urls.py" afterDir="false" />
     </list>
@@ -186,6 +186,8 @@
       <workItem from="1728738617533" duration="81000" />
       <workItem from="1728752478831" duration="4083000" />
       <workItem from="1728925892473" duration="2071000" />
+      <workItem from="1729012667354" duration="188000" />
+      <workItem from="1729013137267" duration="178000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -467,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728926012696</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="feat: 添加api路径">
+      <option name="closed" value="true" />
+      <created>1729012754691</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1729012754691</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 实现考勤视图集和序列化功能" />
     <MESSAGE value="docs: 更新注释文档" />
     <MESSAGE value="docs: 更新README文档" />
     <MESSAGE value="feat: 实现考勤视图集和序列化" />
@@ -511,6 +520,7 @@
     <MESSAGE value="feat: 上传员工后端实现" />
     <MESSAGE value="feat: 实现Redis缓存首页API(员工统计,最新考勤和最新通知)" />
     <MESSAGE value="feat: 更新忽略文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 更新忽略文件" />
+    <MESSAGE value="feat: 添加api路径" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加api路径" />
   </component>
 </project>
