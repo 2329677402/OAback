@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
+
+# 读取.env文件, 方便管理和区分开发环境和生产环境的配置
+env = environ.Env()
+BASE_DIR = Path(__file__).resolve().parent.parent
+# 读取.env文件，在服务器项目的根路径上要创建一个
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # 从 django.contrib.auth.models 导入用户
 
@@ -91,11 +99,11 @@ WSGI_APPLICATION = 'OAback.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoa',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        "NAME": env.str('DB_NAME', 'djangoa'),
+        "USER": env.str('DB_USER', "root"),
+        "PASSWORD": env.str("DB_PASSWORD", "123456"),
+        "HOST": env.str('DB_HOST', 'localhost'),
+        "PORT": env.str('DB_PORT', 3306),
     }
 }
 
@@ -173,15 +181,17 @@ DEFAULT_FROM_EMAIL = "3157043973@qq.com"  # 默认发件人
 
 # Celery配置, 用于异步任务
 # 中间人的配置
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
+CELERY_BROKER_URL = env.str('CELERY_BROKER_URL', 'redis://127.0.0.1:6379/1')
 # 指定结果的接受地址
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/2'
+CELERY_RESULT_BACKEND = env.str('CELERY_RESULT_BACKEND', 'redis://127.0.0.1:6379/2')
+# 任务序列化和反序列化使用msgpack方案
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # 缓存配置
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/3",
+        "LOCATION": env.str('CACHE_URL', "redis://127.0.0.1:6379/3"),
     }
 }
 
