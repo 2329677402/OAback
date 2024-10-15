@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加api路径">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加环境变量" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -486,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729013427320</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="feat: 添加环境变量">
+      <option name="closed" value="true" />
+      <created>1729015215299</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1729015215299</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +509,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="docs: 更新注释文档" />
     <MESSAGE value="docs: 更新README文档" />
     <MESSAGE value="feat: 实现考勤视图集和序列化" />
     <MESSAGE value="chore: 配置文件调整" />
@@ -530,6 +533,7 @@
     <MESSAGE value="feat: 实现Redis缓存首页API(员工统计,最新考勤和最新通知)" />
     <MESSAGE value="feat: 更新忽略文件" />
     <MESSAGE value="feat: 添加api路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加api路径" />
+    <MESSAGE value="feat: 添加环境变量" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加环境变量" />
   </component>
 </project>
