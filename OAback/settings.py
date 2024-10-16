@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-vq@_n*hy*)@bs443bt4x@sld#mr-0k#e!q^(gj7hs!%t&0@rtg
 DEBUG = False
 
 # 允许访问的主机, * 代表所有主机, 设置具体的域名或IP地址, 则只允许该域名或IP访问
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 # 应用程序定义
 

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 添加环境变量">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 更新pip包">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,7 @@
       <workItem from="1729012667354" duration="188000" />
       <workItem from="1729013137267" duration="595000" />
       <workItem from="1729087498622" duration="746000" />
-      <workItem from="1729093928360" duration="3431000" />
+      <workItem from="1729093928360" duration="7468000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -496,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729015215299</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="feat: 更新pip包">
+      <option name="closed" value="true" />
+      <created>1729098935777</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1729098935777</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="docs: 更新README文档" />
     <MESSAGE value="feat: 实现考勤视图集和序列化" />
     <MESSAGE value="chore: 配置文件调整" />
     <MESSAGE value="feat: 实现请假类型和审批人API" />
@@ -540,6 +545,7 @@
     <MESSAGE value="feat: 更新忽略文件" />
     <MESSAGE value="feat: 添加api路径" />
     <MESSAGE value="feat: 添加环境变量" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 添加环境变量" />
+    <MESSAGE value="feat: 更新pip包" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 更新pip包" />
   </component>
 </project>
