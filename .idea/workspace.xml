@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 更新">
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 系统部署">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OAback/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/49qgH7dFNVe65PBL4FQ38L.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/KsKGTZsEXQSB5uxtMtWLNs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/UhZNmEmbL8sKKktqNJdNdg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/bNMjAxwufDDP9ARtkuuiLK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/bYtWaACEVun4sraKuu6zQ8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +197,7 @@
       <workItem from="1729093928360" duration="7468000" />
       <workItem from="1729103994813" duration="245000" />
       <workItem from="1729173516741" duration="1561000" />
-      <workItem from="1729176767620" duration="45000" />
+      <workItem from="1729176767620" duration="5721000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -514,7 +519,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729104170213</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="feat: 系统部署">
+      <option name="closed" value="true" />
+      <created>1729176842913</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1729176842913</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +546,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="chore: 配置文件调整" />
     <MESSAGE value="feat: 实现请假类型和审批人API" />
     <MESSAGE value="refactor: 优化考勤相关URL" />
     <MESSAGE value="docs: 添加相关文件" />
@@ -558,6 +570,7 @@
     <MESSAGE value="feat: 添加环境变量" />
     <MESSAGE value="feat: 更新pip包" />
     <MESSAGE value="feat: 更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 更新" />
+    <MESSAGE value="feat: 系统部署" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 系统部署" />
   </component>
 </project>
