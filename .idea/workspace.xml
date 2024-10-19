@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 基于docker部署">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/EBg2H7bvqSrGhZ8qqYWeqY.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAback/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/staff/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/staff/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/49qgH7dFNVe65PBL4FQ38L.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/KsKGTZsEXQSB5uxtMtWLNs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/UhZNmEmbL8sKKktqNJdNdg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/bNMjAxwufDDP9ARtkuuiLK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/bYtWaACEVun4sraKuu6zQ8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/Pf2hhaKgmnqxBaVxQxfopQ.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +39,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:2329677402/OAback.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:2329677402/oaback.git&quot;,
     &quot;accountId&quot;: &quot;436bed00-678c-4772-89e3-ad42ef4d0d78&quot;
   }
 }</component>
@@ -78,7 +57,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Django 服务器.OAback.executor&quot;: &quot;Run&quot;,
+    &quot;Django 服务器.oaback.executor&quot;: &quot;Run&quot;,
     &quot;Django 服务器.oaback.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -99,19 +78,19 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\OA_System\OAback\templates" />
-      <recent name="D:\Project\OA_System\OAback\utils" />
+      <recent name="D:\Project\OA_System\oaback\templates" />
+      <recent name="D:\Project\OA_System\oaback\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Project\OA_System\OAback\apps" />
-      <recent name="D:\Project\OA_System\OAback\static" />
-      <recent name="D:\Project\OAback\apps\oaauth" />
-      <recent name="D:\Project\OAback\apps" />
+      <recent name="D:\Project\OA_System\oaback\apps" />
+      <recent name="D:\Project\OA_System\oaback\static" />
+      <recent name="D:\Project\oaback\apps\oaauth" />
+      <recent name="D:\Project\oaback\apps" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="oaback" type="Python.DjangoServer" factoryName="Django server">
-      <module name="OAback" />
+      <module name="oaback" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,7 +208,7 @@
       <workItem from="1729343954753" duration="1690000" />
       <workItem from="1729345706219" duration="240000" />
       <workItem from="1729346249202" duration="78000" />
-      <workItem from="1729346329281" duration="3309000" />
+      <workItem from="1729346329281" duration="5881000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -567,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729252558935</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="feat: 基于docker部署">
+      <option name="closed" value="true" />
+      <created>1729351541646</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1729351541646</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
