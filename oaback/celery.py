@@ -12,10 +12,10 @@ from celery.signals import after_setup_logger
 import logging
 
 # 设置django的settings模块，celery会读取这个模块中的配置信息
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'OAback.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oaback.settings')
 
 # 创建celery对象
-app = Celery('OAback')
+app = Celery('oaback')
 
 
 ## 日志管理

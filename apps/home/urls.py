@@ -15,4 +15,5 @@ urlpatterns = [
     path('latest/inform', LatestInformView.as_view(), name='latest_inform'),
     path('latest/absent', LatestAbsentView.as_view(), name='latest_absent'),
     path('department/staff/count', DepartmentStaffCountView.as_view(), name='department_staff_count'),
+    path('health', HealthCheckView.as_view(), name='health_check')
 ]

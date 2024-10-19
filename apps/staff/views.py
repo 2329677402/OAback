@@ -19,7 +19,7 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 from utils import aeser
 from django.urls import reverse
-from OAback.celery import debug_task
+from oaback.celery import debug_task
 from .tasks import send_mail_task
 from django.views import View
 from django.http.response import JsonResponse, HttpResponse

@@ -1,5 +1,5 @@
 """
-OAback 项目的 Django 设置。
+oaback 项目的 Django 设置。
 
 由“django-admin startproject”使用 Django 5.1.1 生成。
 
@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vq@_n*hy*)@bs443bt4x@sld#mr-0k#e!q^(gj7hs!%t&0@rtg'
 
 # 安全警告：请勿在生产环境中开启调试运行!
-DEBUG = False
+DEBUG = True
 
 # 允许访问的主机, * 代表所有主机, 设置具体的域名或IP地址, 则只允许该域名或IP访问
 ALLOWED_HOSTS = ['*']
@@ -72,7 +72,7 @@ MIDDLEWARE = [
     'apps.oaauth.middleware.LoginCheckMiddleware',  # 注册中间件
 ]
 
-ROOT_URLCONF = 'OAback.urls'
+ROOT_URLCONF = 'oaback.urls'
 
 TEMPLATES = [
     {
@@ -91,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'OAback.wsgi.application'
+WSGI_APPLICATION = 'oaback.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -197,41 +197,41 @@ CACHES = {
 }
 
 # 日志配置
-LOGGING = {
-    "version": 1,
-    'disable_existing_loggers': True,
-    # 输出日志格式
-    'formatters': {
-        # 详细的日志格式
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        # 简单的日志格式
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    # 过滤器
-    'handlers': {
-        # 控制台输出信息
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        },
-        # 日志文件位置
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/data/log/oa.log',
-            'formatter': 'verbose'
-        },
-    },
-    # 日志处理器
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-        },
-    },
-}
+# LOGGING = {
+#     "version": 1,
+#     'disable_existing_loggers': True,
+#     # 输出日志格式
+#     'formatters': {
+#         # 详细的日志格式
+#         'verbose': {
+#             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+#         },
+#         # 简单的日志格式
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     # 过滤器
+#     'handlers': {
+#         # 控制台输出信息
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'verbose'
+#         },
+#         # 日志文件位置
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/data/log/oa.log',
+#             'formatter': 'verbose'
+#         },
+#     },
+#     # 日志处理器
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'file'],
+#             'level': 'DEBUG',
+#         },
+#     },
+# }

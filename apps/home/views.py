@@ -69,3 +69,13 @@ class DepartmentStaffCountView(APIView):
         # print(rows)  # <QuerySet [{'name': '董事会', 'staff_count': 3}, {'name': '产品研发部', 'staff_count': 2}, {'name': '运营部', 'staff_count': 2}, {'name': '销售部', 'staff_count': 1}, {'name': '人事部', 'staff_count': 1}, {'name': '财务部', 'staff_count': 2}]>
         print('=' * 10)
         return Response(rows)
+
+
+class HealthCheckView(APIView):
+    """
+    健康检查视图
+    后续可以通过/api/home/health来检查服务是否正常
+    """
+    @staticmethod
+    def get(request):
+        return Response({"code": 200})

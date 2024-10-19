@@ -1,5 +1,5 @@
 """
-OAback 项目的 URL 配置.
+oaback 项目的 URL 配置.
 
 `urlpatterns` 列表将 URL 路由映射到视图.更多信息请参见：
     https://docs.djangoproject.com/en/5.1/topics/http/urls/

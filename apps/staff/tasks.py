@@ -7,7 +7,7 @@
 @ Description : 使用Celery实现异步发送邮件
 """
 
-from OAback import celery_app
+from oaback import celery_app
 from django.core.mail import send_mail
 from django.conf import settings
 

@@ -4,13 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 系统部署">
+    <list default="true" id="a04b4fe8-6453-4079-9c37-5e26f57563ec" name="更改" comment="feat: 基于docker部署">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/EBg2H7bvqSrGhZ8qqYWeqY.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/celery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OAback/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/oaback/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/staff/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/staff/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/staff/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/49qgH7dFNVe65PBL4FQ38L.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/media/KsKGTZsEXQSB5uxtMtWLNs.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/media/UhZNmEmbL8sKKktqNJdNdg.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/media/bNMjAxwufDDP9ARtkuuiLK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/bYtWaACEVun4sraKuu6zQ8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/bYtWaACEVun4sraKuu6zQ8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/Pf2hhaKgmnqxBaVxQxfopQ.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/uwsgi.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +79,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Django 服务器.OAback.executor&quot;: &quot;Run&quot;,
+    &quot;Django 服务器.oaback.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
@@ -71,7 +87,7 @@
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/OA_System/OAback&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/OA_System/oaback&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,20 +110,31 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="OAback" type="Python.DjangoServer" factoryName="Django server">
+    <configuration name="oaback" type="Python.DjangoServer" factoryName="Django server">
       <module name="OAback" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="OAback.settings" />
+        <env name="DJANGO_SETTINGS_MODULE" value="oaback.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="dev_env" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="localhost" />
@@ -198,6 +225,11 @@
       <workItem from="1729103994813" duration="245000" />
       <workItem from="1729173516741" duration="1561000" />
       <workItem from="1729176767620" duration="5721000" />
+      <workItem from="1729252450140" duration="733000" />
+      <workItem from="1729343954753" duration="1690000" />
+      <workItem from="1729345706219" duration="240000" />
+      <workItem from="1729346249202" duration="78000" />
+      <workItem from="1729346329281" duration="3309000" />
     </task>
     <task id="LOCAL-00001" summary="one day">
       <option name="closed" value="true" />
@@ -527,7 +559,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729176842913</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="feat: 基于docker部署">
+      <option name="closed" value="true" />
+      <created>1729252558935</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1729252558935</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +586,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: 实现请假类型和审批人API" />
     <MESSAGE value="refactor: 优化考勤相关URL" />
     <MESSAGE value="docs: 添加相关文件" />
     <MESSAGE value="feat: 添加考勤列表分页" />
@@ -571,6 +610,7 @@
     <MESSAGE value="feat: 更新pip包" />
     <MESSAGE value="feat: 更新" />
     <MESSAGE value="feat: 系统部署" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 系统部署" />
+    <MESSAGE value="feat: 基于docker部署" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 基于docker部署" />
   </component>
 </project>
