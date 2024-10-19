@@ -8,6 +8,9 @@ COPY . /www/
 # 将工作目录切换到/www/下
 WORKDIR /www
 
+# 更新pip
+RUN python -m pip install --upgrade pip
+
 # 安装依赖
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
